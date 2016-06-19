@@ -80,19 +80,19 @@ int main()
       shell_sort(v4);
       End = clock();
       elapsedTime = (End - Start)/CLOCKS_PER_MS;   
-      cout << "shell_sort took: " << elapsedTime << " milliseconds" << endl;
+      cout << "shell_sort took : " << elapsedTime << " milliseconds" << endl;
       //-----------------------------------------------------------------------------------------------------   
       Start = clock();
       merge_sort(v5);
       End = clock();
       elapsedTime = (End - Start)/CLOCKS_PER_MS;   
-      cout << "merge_sort took: " << elapsedTime << " milliseconds" << endl;
+      cout << "merge_sort took : " << elapsedTime << " milliseconds" << endl;
       //-----------------------------------------------------------------------------------------------------   
       Start = clock();
       count_sort(v6, key_large);
       End = clock();
       elapsedTime = (End - Start)/CLOCKS_PER_MS;   
-      cout << "count_sort took: " << elapsedTime << " milliseconds" << endl;
+      cout << "count_sort took : " << elapsedTime << " milliseconds" << endl;
       //-----------------------------------------------------------------------------------------------------
       Start = clock();
       bucket_sort1(v7, key_large);
