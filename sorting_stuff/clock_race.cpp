@@ -20,7 +20,7 @@ int main()
    
    vector<int> v1;
    int key_large = 100; // for count && bucket
-   unsigned val;
+   int val;
    char in = 'x';
    
    cout << "Sort Race" << endl;
@@ -31,11 +31,16 @@ int main()
    do{
       cout << endl << "Enter size of vector to sort then press return to run" << endl;
       cin >> val;
-      if(!cin.good() || val < 0)
+      if(!cin.good())
       {
-         cout << "Error" << endl;
+         cout << "Error: invalid size" << endl;
          cin.ignore('\n', 256);
          cin.clear();
+      }
+      else if( val < 0)
+      {
+         cout << "Error: invalid size" << endl;
+         continue;
       }
       
       for(unsigned i = 0; i < val; i++)
@@ -45,8 +50,6 @@ int main()
       
       if(v1.empty())// because of faulty input
       {         
-         cin.ignore(1); // strip faults one by one
-         cin.clear();
          continue;
       }
       
