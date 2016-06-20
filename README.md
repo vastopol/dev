@@ -1,2 +1,2 @@
 # dev
-software development
+software development using C/C++
