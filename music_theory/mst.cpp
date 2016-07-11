@@ -14,7 +14,6 @@ void T(vector<int> &v, int n); // transpose by n semitones
 
 void R(vector<int> &v); // retrograde = reversal
 
-
 int main()
 {
     
