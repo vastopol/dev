@@ -1,0 +1,63 @@
+/*
+
+            |
+            |
+      II    |     I
+            |
+--------------------------
+            |
+     III    |     IV
+            |
+            |
+
+game is in quadrant IV
+
+
+Score: 0
+CI: (0,1)
+___________
+|x|x|x|x|x|
+|A|x|x|x|x|
+|x|x|x|x|x|
+|x|x|x|x|B|
+|x|x|x|x|x|
+
+
+ / 0 1 2 3 4 {X}
+ 0
+ 1 A
+ 2
+ 3         B
+ 4
+{Y}
+
+x axis horizontal
+y axis vertical (downward)
+
+example of board showing all spaces marked.
+normally starts with all blank except A & B.
+index x[0,4] & y[0,4] 
+on start Score = 0, CI = (x,y) values for point A.
+A & B chosen randomly.
+Can move up, down, left, right.
+as movement occurs across board,
+'x' is laid down on already visited squares && score++.
+each turn ther is a n% death chance.
+step off grid = death.
+win on reaching B
+
+
+Score: 4
+CI: (2,3)
+___________
+| | | | | |
+|A| | | | |
+|x| | | | |
+|x|x|x| |B|
+| | | | | |
+
+same example , now
+finished  4th move...
+current index (CI) :  (2,3)
+
+*/
