@@ -15,6 +15,8 @@ PITCH INDEX (Chromatic from C)
 10 - A#
 11 - B
 
+only sharps for simplicity*****
+order of sets is IMPORTANT, scales/chordsidentified by first pitch in set
 
 sets comprise pitches grouped together
 
@@ -29,7 +31,22 @@ Basic Operations
     Cmaj -> Dmaj
     [C-E-G] -> [D-F#-A]
 
-2.) Inversion - shifting the bass tones upward through a set
+In psuedocode
+
+	v[] = series of notes
+	n   = number of semitones to transpose by
+	sz  = size of series v (number of elements)
+
+Transpose(v[], n, sz)
+{
+    for(i = 0; i < sz; i++)
+    {
+        v[i] = (v[i] + n) % 12;
+    }
+}
+
+
+2.) Inversion (chordal)- shifting the bass tones upward through a set. list all possible inversions. number of inversions = sz of set -1.
 
     Cmaj chord
     
@@ -45,7 +62,7 @@ Basic Operations
 complement
 multiplication
 retrograde 
-retrograde inversion
+retrograde inversion 
 cyclic permutations
 z-relation
 
