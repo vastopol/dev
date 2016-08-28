@@ -1,0 +1,14 @@
+Graphviz
+
+NOTE: each TreeNode contains a "key" value which is a unique character used to generate the .dot file.
+
+Graphviz Dot files - graphs represented in .dot file can be displayed int the Graphviz viewer called dotty.
+We will call dotty of a .dot file from within your C++ program using the system call.
+But first familiarize yourself with both the input file format and the corresponding output using the dotty viewer.
+
+Installation
+
+To install graphviz package you may open up a terminal and execute the following commands:
+
+sudo apt-get update
+sudo apt-get install graphviz
