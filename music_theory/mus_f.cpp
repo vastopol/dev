@@ -140,6 +140,7 @@ void I(vector<int> &v) // inversion
     int k = -1;
     int n;
 
+    // count inverversions
     for(unsigned i = 0; i < v.size(); i++) // fill queue
     {
         q.push(v.at(i));
@@ -166,8 +167,8 @@ void I(vector<int> &v) // inversion
         }
     }
 
-
-    cout << "enter number of inversions to perform:" << endl;
+    // user input
+    cout << "enter inversion index:" << endl;
     cin >> n;
 
     for(unsigned i = 0; i < n ; i++)

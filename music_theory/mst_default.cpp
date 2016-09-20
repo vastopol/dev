@@ -27,7 +27,6 @@ int main()
         // // transposition
         //transpose(v);
 
-
         // // retrograde
         //R(v);
 

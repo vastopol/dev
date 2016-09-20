@@ -21,20 +21,30 @@ int main()
 
     int n;
 
-    cout << "Before" << endl;
+    cout << "Before:" << endl;
     display(v);
+    cout << endl;
+    
+        // transposition
+        transpose(v);
 
-        // // transposition
-        //transpose(v);
-
-        // // retrograde
-        //R(v);
-
-        // // inversion
-        //I(v);
-
-    cout << "After" << endl;
+    cout << "After:" << endl;
     display(v);
+    cout << endl;
+
+        // inversion
+        I(v);
+        
+    cout << "After:" << endl;
+    display(v);
+    cout << endl;
+    
+        // retrograde
+        R(v);
+        
+    cout << "After:" << endl; // last...
+    display(v);
+    cout << endl;
 
 return 0;
 }
