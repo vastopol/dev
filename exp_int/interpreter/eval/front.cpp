@@ -1,4 +1,5 @@
-#include "functs.h"
+#include "functs_eval.h"
+#include "functs_com.h"
 
 #include <iostream>
 #include <string>
@@ -6,8 +7,6 @@
 using namespace std;
 
 // local functions
-
-
 
 int main()
 {
@@ -22,12 +21,18 @@ do
     getline(cin, input);
     cout << input << endl;
     
-    if(input == "quit")
+    if(input == "quit") // to end
     {
         break;
     }
         
+    // parse here with arithmetic expression tree
+    
+    // if starts with "?:" then eval   
     eval(input);
+        
+    // else call com funct
+    //com(input);
 }
 while(1);
 

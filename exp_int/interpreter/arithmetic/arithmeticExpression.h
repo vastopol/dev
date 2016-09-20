@@ -1,3 +1,5 @@
+// arithmetic expression tree for parsing math ???
+
 #ifndef ARITHMETICEXPRESSION_H
 #define ARITHMETICEXPRESSION_H
 #include <iostream>
