@@ -23,7 +23,6 @@ class arithmeticExpression
   private:
     string infixExpression;
     TreeNode* root;
-
 */
 
 
@@ -31,13 +30,16 @@ class arithmeticExpression
 int arithmeticExpression::priority(char op)
 {
     int priority = 0;
-    if(op == '('){
+    if(op == '(')
+    {
         priority =  3;
     }
-    else if(op == '*' || op == '/'){
+    else if(op == '*' || op == '/')
+    {
         priority = 2;
     }
-    else if(op == '+' || op == '-'){
+    else if(op == '+' || op == '-')
+    {
         priority = 1;
     }
     return priority;
@@ -49,25 +51,35 @@ string arithmeticExpression::infix_to_postfix()
     stack<char> s;
     ostringstream oss;
     char c;
-    for(unsigned i = 0; i< infixExpression.size();++i){
+    for(unsigned i = 0; i < infixExpression.size(); ++i)
+    {
         c = infixExpression.at(i);
-        if(c == ' '){
+        if(c == ' ')
+        {
             continue;
         }
-        if(c == '+' || c == '-' || c == '*' || c == '/' || c == '(' || c == ')'){ //c is an operator
-            if( c == '('){
+        
+        if(c == '+' || c == '-' || c == '*' || c == '/' || c == '(' || c == ')') //c is an operator
+        { 
+            if( c == '(')
+            {
                 s.push(c);
             }
-            else if(c == ')'){
-                while(s.top() != '('){
+            else if(c == ')')
+            {
+                while(s.top() != '(')
+                {
                     oss << s.top();
                     s.pop();
                 }
                 s.pop();
             }
-            else{
-                while(!s.empty() && priority(c) <= priority(s.top())){
-                    if(s.top() == '('){
+            else
+            {
+                while(!s.empty() && priority(c) <= priority(s.top()))
+                {
+                    if(s.top() == '(')
+                    {
                         break;
                     }
                     oss << s.top();
@@ -76,11 +88,13 @@ string arithmeticExpression::infix_to_postfix()
                 s.push(c);
             }
         }
-        else{ //c is an operand
+        else //c is an operand
+        { 
             oss << c;
         }
     }
-    while(!s.empty()){
+    while(!s.empty())
+    {
         oss << s.top();
         s.pop();
     }
@@ -157,27 +171,6 @@ string arithmeticExpression::infix_to_postfix()
      return ((x > y) ? x : y) + 1;
  }
  
- /* Helper function for generating the dotty file. This is a recursive function. */
- void arithmeticExpression::visualizeTree(ofstream &out, TreeNode *n)
- {
-     if (n == 0)
-     {
-         return;
-     }
-     out << '\n';
-     out << n->key << " [color = lightblue, style = filled, label=\"key=" << n->data;
-     out << ", h=" << height(n)-1 << "\"];";
-     if (n->left != 0)
-     {
-        out << "\n" << n->key << " -> " << (n->left)->key << ";";
-        visualizeTree(out, n->left);
-     }
-     if (n->right != 0)
-     {
-        out << "\n" << n->key << " -> " << (n->right)->key << ";";
-        visualizeTree(out, n->right);
-     }
- }
 
 //=========================================================================================
 //=========================================================================================
@@ -231,20 +224,3 @@ string arithmeticExpression::infix_to_postfix()
     return;
  }
  
- void arithmeticExpression::visualizeTree(const string &outputFilename)
- {
-    ofstream outFS;
-    outFS.open(outputFilename.c_str());
-    if(!outFS.is_open()){
-        cout<<"Error opening "<< outputFilename<<endl;
-        return;
-    }
-    outFS<<"digraph G {"<<endl;
-    visualizeTree(outFS,root);
-    outFS<<"}";
-    outFS.close();
-    string jpgFilename = outputFilename.substr(0,outputFilename.size()-4)+".jpg";
-    string command = "dot -Tjpg " + outputFilename + " -o " + jpgFilename;
-    system(command.c_str());
-}
-

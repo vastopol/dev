@@ -9,14 +9,14 @@
 // #include <cstring>
 // #include <cstdlib>
 // #include <iomanip>
-#include <iostream>
 // #include <fstream>
 // #include <sstream>
+// #include <vector>
+// #include <list>
+#include <iostream>
 #include <string>
-//#include <list>
 #include <stack> 
 #include <queue>
-//#include <vector>
 #include <iterator>
 
 using namespace std; // maybe scope resolve later...

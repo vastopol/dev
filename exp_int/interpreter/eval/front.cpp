@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 
-
 using namespace std;
 
 
@@ -22,20 +21,22 @@ cout << "Enter an expression/equation to evaluate" << endl;
 // cout << "supports operations:" << endl <<  " &, |, !, +, -, *, /, %," << endl;
 // cout << " =, != <, >, <=, >=" << endl;
 
-//while(1)
-//{
-  
-  
+do
+{
     cout << "?:";
     getline(cin, input);
-    // cout << input << endl;
+    cout << input << endl;
+    
+    if(input == "quit")
+    {
+        break;
+    }
     
     eval(input);
+}
+while(1);
 
-  
-
-//}
-
+cout << "END" << endl;
 
 return 0;
 }

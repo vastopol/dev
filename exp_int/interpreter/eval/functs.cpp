@@ -41,12 +41,12 @@ bool eval(std::string str) // evaluation engine
    }
    
    // now at this point Q contains pieces separate but in order, no spaces
-   //if an equation then
+   // if an equation then
    // have to separate into sub parts to be evaluated separately and compared
    // QueL = left half before eval sign
    // QueR = right half after eval sign
    // set temp = eval sign and use that aside
-   //else evaluate expression
+   // else evaluate expression
 
 
     // err check
@@ -66,7 +66,7 @@ bool eval(std::string str) // evaluation engine
             Que.pop();
         }
         
-        temp = Que.front(); Que.pop(); // capture the evaluator
+        temp = Que.front(); Que.pop();  // capture the evaluator
         QueR = Que;                     // fill Queue for right side with leftovers
         
         
@@ -146,13 +146,12 @@ return false;
 //-------------------------------------------------------------------------------------------
 
 
-bool isBalanced(string s) // ballanced number of separators
+bool isBalanced(string s) // check for ballanced number of separators
 {
     stack<char> ppp;
     
     for(string::iterator it = s.begin(); it != s.end(); it++)
     {
-
         if(*it == '(' || *it == '[' || *it == '{')
         {
             ppp.push(*it);
