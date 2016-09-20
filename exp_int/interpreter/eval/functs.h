@@ -24,6 +24,8 @@ using namespace std; // maybe scope resolve later...
 
 bool eval(std::string s);       // evaluation engine
 
+void help();
+
 bool isBalanced(std::string s); // refers to brackets, braces, parentheses...
 
 bool isEqn(std::queue<std::string> Q);

@@ -5,25 +5,20 @@
 
 using namespace std;
 
+// local functions
+
+
 
 int main()
 {
+cout << "EVAL Engine" << endl;
+cout << "Enter a command OR an expression/equation to evaluate" << endl;
 
 string input;
 
-cout << "Logical Calculator" << endl;
-cout << "Enter an expression/equation to evaluate" << endl;
-
-// cout << "Have matching parenthesis and correct grammar" << endl;   //// A = B, A != B, A < B, etc... use only 1 binary evaluator
-// cout << "separete distinct sub-pieces with borders" << endl;
-// cout << " E.g1: \"(1 * 2) = (3 - 1)\"" << endl;
-// cout << " E.g2: \"([1 + 3] * 3) = ({24 / 3} + 4)\"" << endl;
-// cout << "supports operations:" << endl <<  " &, |, !, +, -, *, /, %," << endl;
-// cout << " =, != <, >, <=, >=" << endl;
-
 do
 {
-    cout << "?:";
+    cout << ">>";
     getline(cin, input);
     cout << input << endl;
     
@@ -31,7 +26,7 @@ do
     {
         break;
     }
-    
+        
     eval(input);
 }
 while(1);
@@ -40,5 +35,6 @@ cout << "END" << endl;
 
 return 0;
 }
+//=====================================================
 
 

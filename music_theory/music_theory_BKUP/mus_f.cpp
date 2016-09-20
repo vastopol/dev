@@ -45,8 +45,6 @@ void transpose(vector<int> &v)
     string keyTo = "xXx";
     bool noGo = false;
     int tones = 0;
-    unsigned i = 0;  // loop index 
-    unsigned kk = 0; // index measured by degrees on chromatic from c
 
     //correct s to the leading tone of v
     T(s, v.at(0));
@@ -56,54 +54,114 @@ void transpose(vector<int> &v)
         cin >> keyTo;
         noGo = false;
 
-        // SET the var, measured by degrees on chromatic from c
+        // measured by degrees on chromatic from c
         if(keyTo == "C")
         {
-            kk = 0;
+            unsigned i = 0;
+            while(s.at(i) != r.at(0))
+            {
+                tones++;
+                i++;
+            }
         }
         else if(keyTo == "C#")
         {
-            kk = 1;
+            unsigned i = 0;
+            while(s.at(i) != r.at(1))
+            {
+                tones++;
+                i++;
+            }
         }
         else if(keyTo == "D")
         {
-            kk = 2;
+            unsigned i = 0;
+            while(s.at(i) != r.at(2))
+            {
+                tones++;
+                i++;
+            }
         }
         else if(keyTo == "D#")
         {
-            kk = 3;
+            unsigned i = 0;
+            while(s.at(i) != r.at(3))
+            {
+                tones++;
+                i++;
+            }
         }
         else if(keyTo == "E")
         {
-            kk = 4;
+            unsigned i = 0;
+            while(s.at(i) != r.at(4))
+            {
+                tones++;
+                i++;
+            }
         }
         else if(keyTo == "F")
         {
-            kk = 5;
+            unsigned i = 0;
+            while(s.at(i) != r.at(5))
+            {
+                tones++;
+                i++;
+            }
         }
         else if(keyTo == "F#")
         {
-            kk = 6;
+            unsigned i = 0;
+            while(s.at(i) != r.at(6))
+            {
+                tones++;
+                i++;
+            }
         }
         else if(keyTo == "G")
         {
-            kk = 7;
+            unsigned i = 0;
+            while(s.at(i) != r.at(7))
+            {
+                tones++;
+                i++;
+            }
         }
         else if(keyTo == "G#")
         {
-            kk = 8;
+            unsigned i = 0;
+            while(s.at(i) != r.at(8))
+            {
+                tones++;
+                i++;
+            }
         }
         else if(keyTo == "A")
         {
-            kk = 9;
+            unsigned i = 0;
+            while(s.at(i) != r.at(9))
+            {
+                tones++;
+                i++;
+            }
         }
         else if(keyTo == "A#")
         {
-            kk = 10;
+            unsigned i = 0;
+            while(s.at(i) != r.at(10))
+            {
+                tones++;
+                i++;
+            }
         }
         else if(keyTo == "B")
         {
-            kk = 11;
+            unsigned i = 0;
+            while(s.at(i) != r.at(11))
+            {
+                tones++;
+                i++;
+            }
         }
         else
         {
@@ -112,16 +170,8 @@ void transpose(vector<int> &v)
         }
 
     }while(noGo == true);
-   
-    while(s.at(i) != r.at(kk)) // move by to scale if need...
-    {
-        tones++;
-        i++;
-    }
 
     T(v, tones); // call T()
-    
-    return;
 }
 //-----------------------------------------------------------------
 

@@ -145,6 +145,18 @@ return false;
 }
 //-------------------------------------------------------------------------------------------
 
+void help()
+{
+    cout << "Have matching parenthesis and correct grammar" << endl;   //// A = B, A != B, A < B, etc... use only 1 binary evaluator
+    cout << "separete distinct sub-pieces with borders" << endl;
+    cout << " E.g1: \"(1 * 2) = (3 - 1)\"" << endl;
+    cout << " E.g2: \"([1 + 3] * 3) = ({24 / 3} + 4)\"" << endl;
+    cout << "supports operations:" << endl <<  " &, |, ~, +, -, *, /, %," << endl;
+    cout << " =, != <, >, <=, >=" << endl;
+    return;
+}
+//-------------------------------------------------------------------------------------------
+
 
 bool isBalanced(string s) // check for ballanced number of separators
 {
@@ -191,7 +203,7 @@ bool isBalanced(string s) // check for ballanced number of separators
 
 bool isEqn(std::queue<std::string> Que) // segfault?? maybe
 {    
-     if(Que.empty()) return false; // err chk?
+    if(Que.empty()) return false; // err chk?
      
     while(Que.front() != "=" && Que.front() != "!=" && Que.front() != "<" && Que.front() != "<=" && Que.front() != ">" && Que.front() != ">=" && !Que.empty())
     {
