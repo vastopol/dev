@@ -58,7 +58,7 @@ bool eval(std::string str) // evaluation engine
 
     if(isEqn(Que))   
     {
-        cout << "Equation" << endl;
+        cout << "Equation not done" << endl;
         
         while(Que.front() != "=" && Que.front() != "!=" && Que.front() != "<" && Que.front() != "<=" && Que.front() != ">" && Que.front() != ">=")
         {
@@ -78,22 +78,22 @@ bool eval(std::string str) // evaluation engine
         
         /*
             bool z = false;
-            x = recurEval(QueL)
-            y = recurEval(QueR)
+            x = recurEval(QueL) ??
+            y = recurEval(QueR) ??
         
-            if(temp == "=")        // =
+            if(temp == "=")         // =
             {
             }
             else if(temp == "!=")   // !=
             {
             }
-            else if(temp == "<")   // <
+            else if(temp == "<")    // <
             {
             }
             else if(temp == "<=")   // <=
             {
             }
-            else if(temp == ">")   // >
+            else if(temp == ">")    // >
             {
             }
             else if(temp == ">=")   // >=
@@ -101,6 +101,8 @@ bool eval(std::string str) // evaluation engine
             }
             else        //default catch
             {
+                cout << "ERROR:: unknown evaluator" << endl;
+                return false;
             }
         
         */
@@ -146,7 +148,7 @@ return false;
 //-------------------------------------------------------------------------------------------
 
 
-bool isBalanced(string s) // check for ballanced number of separators
+bool isBalanced(string s) // check for ballanced number of separators (, {, [
 {
     stack<char> ppp;
     
@@ -180,7 +182,7 @@ bool isBalanced(string s) // check for ballanced number of separators
                 {
                     ppp.pop();
                 }
-            }
+            } 
         }
     }
     
