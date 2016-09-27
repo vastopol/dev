@@ -1,5 +1,5 @@
 #include "functs_eval.h"
-#include "functs_com.h"
+//#include "functs_com.h"
 
 #include <iostream>
 #include <string>

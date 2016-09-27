@@ -193,9 +193,16 @@ bool isEqn(std::queue<std::string> Que) // segfault?? maybe
 {    
     if(Que.empty()) return false; // err chk?
      
-    while(Que.front() != "=" && Que.front() != "!=" && Que.front() != "<" && Que.front() != "<=" && Que.front() != ">" && Que.front() != ">=" && !Que.empty())
+    while(!Que.empty())
     {
-        Que.pop();
+        if(Que.front() != "=" && Que.front() != "!=" && Que.front() != "<" && Que.front() != "<=" && Que.front() != ">" && Que.front() != ">=") 
+        {
+            Que.pop();
+        }
+        else
+        {
+            break;
+        }
     }
     
     // should still have pieces left if there is an eval sign
