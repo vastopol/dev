@@ -33,7 +33,7 @@ int main()
     cout << endl;
 
         // inversion
-        I(v);
+        invert(v);
         
     cout << "After:" << endl;
     display(v);

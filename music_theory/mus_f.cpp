@@ -125,7 +125,7 @@ void transpose(vector<int> &v)
 }
 //-----------------------------------------------------------------
 
-void T(vector<int> &v, int n) // transposition
+void T(vector<int> &v, int n) // transposition by n semitones
 {
     for(unsigned i = 0; i < v.size(); i++)
     {
@@ -134,7 +134,7 @@ void T(vector<int> &v, int n) // transposition
 }
 //-----------------------------------------------------------------
 
-void I(vector<int> &v) // inversion
+void invert(vector<int> &v) // inversion helper
 {
     queue<int> q;
     int k = -1;
@@ -171,7 +171,22 @@ void I(vector<int> &v) // inversion
     cout << "enter inversion index:" << endl;
     cin >> n;
 
-    for(unsigned i = 0; i < n ; i++)
+    I(v, n);
+
+}
+//-----------------------------------------------------------------
+
+void I(vector<int> &v, int n) // inversion n times
+{
+    queue<int> q;
+    int k = -1;
+    
+    for(unsigned i = 0; i < v.size(); i++) // fill queue
+    {
+        q.push(v.at(i));
+    }
+    
+    for(unsigned i = 0; i < n ; i++) // cycle through inversions
     {
         k = q.front();
         q.pop();
@@ -185,7 +200,6 @@ void I(vector<int> &v) // inversion
             q.push(k);
         }
     }
-
 }
 //-----------------------------------------------------------------
 
@@ -194,3 +208,4 @@ void R(vector<int> &v) // retrograde
     std::reverse(v.begin(), v.end());
 }
 //----------------------------------------------------------------
+

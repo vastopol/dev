@@ -17,7 +17,9 @@ void transpose(vector<int> &v); // transpose helper
 
 void T(vector<int> &v, int n); // transpose by n semitones
 
-void I(vector<int> &v); // inversion
+void invert(vector<int> &v); // inversion helper
+
+void I(vector<int> &v, int n); // invert n times
 
 void R(vector<int> &v); // retrograde = reversal
 
