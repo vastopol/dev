@@ -34,11 +34,12 @@ do
     {
         size_t pos = 3;             // should be at 4th char
         input = input.substr(pos);  // input now cut out "?: "
-        eval(input);
+        
+        eval(input);                // call EVAL()
     }        
-    else //call com funct
+    else 
     {
-        com(input);
+        com(input);                 // call COM()
     }
     
 }

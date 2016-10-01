@@ -15,11 +15,13 @@ bool eval(std::string str) // evaluation engine
       return false;
    }
    
-   std::queue<std::string> Que;
-   std::queue<std::string> QueL;
-   std::queue<std::string> QueR;
-   std::string temp;
+   //LOCAL VARS
+   std::queue<std::string> Que;     // begining string
+   std::queue<std::string> QueL;    // if eqn holds left side
+   std::queue<std::string> QueR;    // if eqn holds right side
+   std::string temp;                // if eqn holds comparator
    
+   // take out space character spearators
    unsigned i = 0;
    unsigned j = 0;
    for(; i < str.size(); i++)
@@ -188,7 +190,7 @@ bool isBalanced(string s) // check for ballanced number of separators (, {, [
     
     return ppp.empty();
 }
-//--------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------
 
 
 bool isEqn(std::queue<std::string> Que) // segfault?? maybe
@@ -210,4 +212,5 @@ bool isEqn(std::queue<std::string> Que) // segfault?? maybe
     // should still have pieces left if there is an eval sign
     return !Que.empty();
 }
+//-------------------------------------------------------------------------------------------
 
