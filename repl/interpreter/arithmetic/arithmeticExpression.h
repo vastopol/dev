@@ -28,7 +28,7 @@ class arithmeticExpression
     to the value of parameter passed in. */
     arithmeticExpression(const string&);
 
-    /* Implementation of destrucor is optional.
+    /* Implementation of destrucor is not done.
        The destructor should deallocate all the nodes in the tree. */
     //~arithmeticExpression();
 

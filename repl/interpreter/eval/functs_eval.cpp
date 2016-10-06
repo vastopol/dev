@@ -60,7 +60,7 @@ bool eval(std::string str) // evaluation engine
 
     if(isEqn(Que))   
     {
-        cout << "Equation not done" << endl;
+        cout << "Equation not done" << endl; //*****
         
         while(Que.front() != "=" && Que.front() != "!=" && Que.front() != "<" && Que.front() != "<=" && Que.front() != ">" && Que.front() != ">=")
         {
@@ -130,7 +130,7 @@ bool eval(std::string str) // evaluation engine
     }
     else    
     {
-        // run through rescrsuve evauator output result && true
+        // run through recursive evauator output result && true
         cout << "Expression" << endl;
         
         //   while(!Que.empty())

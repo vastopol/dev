@@ -6,33 +6,25 @@
 
 using namespace std;
 
-// local functions
-
 int main()
 {
-cout << "EVAL Engine" << endl;
-cout << "Enter a command OR an expression/equation to evaluate" << endl;
+std::cout << "EVAL Engine" << std::endl;
+std::cout << "Enter a command OR an expression/equation to evaluate" << std::endl;
 
-string input;
+std::string input;
 
 do
 {
-    cout << ">>";
+    std::cout << ">>";
     getline(cin, input);    // get 
-    cout << input << endl;  // echo
+    std::cout << input << std::endl;  // echo
     
-    if(input == "quit")     // end
-    {
-        break;
-    }
-    
-
     std::string letsee = input.substr(0, 3); // substring start at 0, 3 char long. ergo first 3 char
     // if starts with "?: " then call eval  && parse with arithmetic expression tree
     
     if(letsee == "?: ")
     {
-        size_t pos = 3;             // should be at 4th char
+        size_t pos = 3;             // real input should be at 4th char
         input = input.substr(pos);  // input now cut out "?: "
         
         eval(input);                // call EVAL()
@@ -45,10 +37,9 @@ do
 }
 while(1);
 
-cout << "END" << endl;
+std::cout << "END" << std::endl;
 
 return 0;
 }
 //=====================================================
-
 

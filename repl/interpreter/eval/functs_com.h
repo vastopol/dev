@@ -6,23 +6,32 @@
 // #include <cmath>
 // #include <ctime>
 // #include <climits>
-// #include <cstring>
-// #include <cstdlib>
 // #include <iomanip>
 // #include <fstream>
 // #include <sstream>
 // #include <vector>
 // #include <list>
+
+#include <cstdlib>
+#include <cstring>
 #include <iostream>
+#include <iterator>
 #include <string>
 #include <stack> 
 #include <queue>
-#include <iterator>
 
-using namespace std; // maybe scope resolve later...
 
 void com(std::string s);
 
-void help();
+void unsafe(); // danger time undocumented feature
+
+void quit();    // quit routine
+
+void clr_scr(); // clear screen function
+
+void help();    // help prompt
+
+
+
 
 #endif // __FUNCTS_COM__

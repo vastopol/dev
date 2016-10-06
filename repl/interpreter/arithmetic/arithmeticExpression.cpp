@@ -108,30 +108,22 @@ string arithmeticExpression::infix_to_postfix()
     beginning and ending of each expression. */
  void arithmeticExpression::infix(TreeNode *n)
  {
-     if(n == 0)
-     {
+    if(n == 0)
+    {
          return;
-     }
-    //if ((n->left != 0 && n != root->left) || n == root)
-    if(n->data == '+' || n->data == '-' || n->data == '/' || n->data == '*')
-    {
-        //if(n->left->left == 0 && n->left->right == 0)
-        {
-            cout << '(';
-        }
     }
-    infix(n->left);
-
-    cout << n->data;
-
-    infix(n->right);
     if(n->data == '+' || n->data == '-' || n->data == '/' || n->data == '*')
-    //if((n->right != 0 && n != root->right) || n == root)
     {
-        //if(n->right->left == 0 && n->right->right == 0)
-        {
+            cout << '(';
+    }
+
+    infix(n->left);
+    cout << n->data;
+    infix(n->right);
+    
+    if(n->data == '+' || n->data == '-' || n->data == '/' || n->data == '*')
+    {
             cout << ')';
-        }
     }
  }
 
@@ -139,10 +131,10 @@ string arithmeticExpression::infix_to_postfix()
     by performing the preorder traversal of the tree. */
  void arithmeticExpression::prefix(TreeNode *n)
  {
-     if(n == 0)
-     {
+    if(n == 0)
+    {
          return;
-     }
+    }
      
     cout << n->data;
     prefix(n->left);
@@ -182,7 +174,7 @@ string arithmeticExpression::infix_to_postfix()
     : infixExpression(str), root(0)
  {}
 
- /* Implementation of destrucor is optional.
+ /* Implementation of destrucor is not done.
     The destructor should deallocate all the nodes in the tree. */
  //arithmeticExpression::~arithmeticExpression();
 
