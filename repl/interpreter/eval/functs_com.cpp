@@ -1,8 +1,9 @@
 #include "functs_com.h"
+#include "undoc.h"
 
 void com(std::string s)
 {
-    // // UNDOC FEAT... toggle if not need
+    // // UNDOC FEAT... undoc.h
     // /*//-------------------------------------------------
     if(s == "unsafe") 
     {
@@ -11,7 +12,7 @@ void com(std::string s)
         std::cout << ">"; std::cin >> go; std::cout << '\n';
         if(go == 'Y')
         {        
-            unsafe(); // danger time
+            unsafe(); // undoc.h
         }
         else
         {
@@ -38,14 +39,6 @@ void com(std::string s)
     }
    
    return;
-}
-//-------------------------------------------------------------------------------------------
-
-void unsafe()
-{
-    std::string danger_com = "DANGER";
-    std::cout << '>'; std::cin >> danger_com; std::cout << '\n';
-    system(danger_com.c_str());
 }
 //-------------------------------------------------------------------------------------------
 

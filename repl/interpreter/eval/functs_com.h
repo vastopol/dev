@@ -23,8 +23,6 @@
 
 void com(std::string s);
 
-void unsafe(); // danger time undocumented feature
-
 void quit();    // quit routine
 
 void clr_scr(); // clear screen function
