@@ -17,7 +17,6 @@ void display(vector<int> &v)
     {
         switch(v.at(i))
         {
-
             case 0: cout  << "C" << ' '; break;
             case 1: cout  << "C#" << ' '; break;
             case 2: cout  << "D" << ' '; break;
