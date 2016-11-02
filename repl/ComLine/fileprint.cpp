@@ -11,6 +11,12 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
+    if(argc == 1)
+    {
+        cout << "ERROR missing args" << endl;
+        exit(1);
+    }
+    
     // command-line argument interface
     // name of current program is in argv[0], and string knows how to handle it.
     string inFName = argv[1];
