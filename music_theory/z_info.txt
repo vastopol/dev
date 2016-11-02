@@ -17,7 +17,7 @@ PITCH INDEX (Chromatic from C)
 
 modular artihmetic, base 12, 0 index
 only sharps for simplicity*****
-order of sets is IMPORTANT, scales/chordsidentified by first pitch in set
+order of sets is VERY IMPORTANT, chords/scales are identified by first pitch in set
 
 sets comprise pitches grouped together
 
@@ -27,18 +27,18 @@ eg: Cmaj = [C-E-G]
     
 ;---------------------------------------------------------------------------------
 
-Basic Operations
+BASIC OPERATIONS
 
-1.) Transposition - shifting all of the pitches in a set S,  n number of semitones
+1.) Transposition - shift all of the pitches in a set S, n number of semitones
 
     Cmaj -> Dmaj
     [C-E-G] -> [D-F#-A]
 
 In psuedocode
 
-	v[] = series of notes
+	v[] = set of notes
 	n   = number of semitones to transpose by
-	sz  = size of series v (number of elements)
+	sz  = size of set v (number of elements in set)
 
 Transpose(v[], n, sz)
 {
@@ -50,23 +50,33 @@ Transpose(v[], n, sz)
 
 ;---------------------------------------------------------------------------------
 
-2.) Inversion (chordal)- shifting the bass tones upward through a set. list all possible inversions. number of inversions = sz of set -1.
+2.) Inversion (chordal)- shifting the bass tones upward through a set. number of inversions = (size - 1)
 
-    Cmaj chord
+    Cmaj chord =  [C-E-G]
     
-    root    -> 1st invert
-    [C-E-G] -> [E-G-C]
+    root          1st invert
+    [C-E-G]   ->  [E-G-C]
     
-    1st invert -> 2nd invert
-    [E-G-C]    -> [G-C-E]
+    1st invert    2nd invert
+    [E-G-C]   ->  [G-C-E]
+    
+    2nd invert    root
+    [G-C-E]   ->  [C-E-G]
+
+;-----------------------------------------------------------------------------------
+     
+3.) retrograde (reversal of the set)
+
+[C-E-G] -> [G-E-C]
+
+;-----------------------------------------------------------------------------------
     
     
 //other operations
 
 complement
-multiplication
-retrograde 
-retrograde inversion 
+multiplication 
+retrograde inversion (compositional operation)
 cyclic permutations
 z-relation
 

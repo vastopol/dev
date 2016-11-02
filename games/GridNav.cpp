@@ -11,7 +11,7 @@ char grid[_GRID_SIZE_][_GRID_SIZE_]; //2D playing field
 
 // LOCAL FUNCTIONS
 void display();
-void clear();
+void clear(); //escape character sequence for clear screen
 
 int main()
 {
@@ -19,7 +19,7 @@ int main()
     unsigned score = 0; 
     unsigned level = 1;
     
-    terrible_coding_strategy: // i cant believe im using a goto statement
+    terrible_coding_strategy: // I cant believe I am using a goto statement (see line 111)
     
     srand(time(NULL));
 
@@ -31,12 +31,11 @@ int main()
     char input = '@';
     int randomizer = -9999;
     bool flag = false;
-    
-    // char grid[_GRID_SIZE_][_GRID_SIZE_]; 
+
     //initialize grid
-    for(int i = 0; i <_GRID_SIZE_; i++ )
+    for(int i = 0; i < _GRID_SIZE_; i++)
     {
-        for(int j = 0; j <_GRID_SIZE_; j++ )
+        for(int j = 0; j < _GRID_SIZE_; j++)
         {
             grid[i][j] = ' ';
         }
@@ -75,7 +74,7 @@ int main()
         cout << ">>";
         cin >> input;
         
-        randomizer = rand() % 25 + 1; // gen a number [1,x], 1 = instant death; y% chance = (1/x)
+        randomizer = rand() % 25 + 1; // gen a number [1,a]; 1 = instant death; b% chance = (1/a)
         if(randomizer == 1) 
         {
             cout << "BANG... you died" << endl;
@@ -109,7 +108,7 @@ int main()
         else if(cur.first == B.first && cur.second == B.second)
         {
             level++;
-            goto terrible_coding_strategy;
+            goto terrible_coding_strategy; // goto line 22
         }
         else if(flag == false)
         {
@@ -122,7 +121,11 @@ int main()
                 grid[cur.first][cur.second] = (grid[cur.first][cur.second])++; 
             }
         }
-        
+        else
+        {
+            cout << "ERROR: UNKNOWN" << endl;
+            exit(1);
+        }
         
     }while(input != 'q');
     
@@ -154,7 +157,7 @@ void display()
 }
 //-----------------------------------------------------
 
-///escape character sequence for clear screen
+
 void clear()
 {
     cout << "\033c";
