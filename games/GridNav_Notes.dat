@@ -10,9 +10,11 @@
             |
             |
 
-game is in quadrant IV
+Game is in quadrant IV
 
+Game uses WASD keys for navigation 
 
+Level: 1
 Score: 0
 CI: (0,1)
 ___________
@@ -36,7 +38,7 @@ y axis vertical (downward)
 
 example of board showing all spaces marked.
 normally starts with all blank except A & B.
-index x[0,4] & y[0,4] 
+in this example index A[0,1] & B[4,3] 
 on start Score = 0, CI = (x,y) values for point A.
 A & B chosen randomly.
 Can move up, down, left, right.
@@ -44,9 +46,9 @@ as movement occurs across board,
 'x' is laid down on already visited squares && score++.
 each turn ther is a n% death chance.
 step off grid = death.
-win on reaching B
+Level up on reaching B
 
-
+Level: 1
 Score: 4
 CI: (2,3)
 ___________
