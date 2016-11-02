@@ -152,13 +152,14 @@ void invert(vector<int> &v) // inversion helper
         q.pop();
         q.push(k);
 
-        for(unsigned j = 0; j < v.size(); j++)
+        for(unsigned j = 0; j < v.size(); j++) // reset with current inversion
         {
             v.at(j) = q.front();
             k = q.front();
             q.pop();
             q.push(k);
         }
+        
         if(i < v.size()-1) // sz-1 possible inversions before repeat
         {
             cout << "@" << (i + 1) << ": ";
@@ -180,7 +181,7 @@ void I(vector<int> &v, int n) // inversion n times
     queue<int> q;
     int k = -1;
     
-    for(unsigned i = 0; i < v.size(); i++) // fill queue
+    for(unsigned i = 0; i < v.size(); i++) // fill queue with original
     {
         q.push(v.at(i));
     }
@@ -190,15 +191,16 @@ void I(vector<int> &v, int n) // inversion n times
         k = q.front();
         q.pop();
         q.push(k);
-
-        for(unsigned j = 0; j < v.size(); j++)
-        {
-            v.at(j) = q.front();
-            k = q.front();
-            q.pop();
-            q.push(k);
-        }
     }
+    
+    for(unsigned j = 0; j < v.size(); j++) // set v to inverted
+    {
+        v.at(j) = q.front();
+        k = q.front();
+        q.pop();
+        q.push(k);
+    }
+    
 }
 //-----------------------------------------------------------------
 
