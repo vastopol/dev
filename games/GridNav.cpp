@@ -9,10 +9,18 @@ using namespace std;
 #define _GRID_SIZE_ 10
 char grid[_GRID_SIZE_][_GRID_SIZE_]; //2D playing field
 
+// LOCAL FUNCTIONS
 void display();
+void clear();
 
 int main()
 {
+    // keep up here so it wont get reset
+    unsigned score = 0; 
+    unsigned level = 1;
+    
+    terrible_coding_strategy: // i cant believe im using a goto statement
+    
     srand(time(NULL));
 
     int x = -1;
@@ -21,7 +29,6 @@ int main()
     pair<int, int> B;
     pair<int, int> cur;
     char input = '@';
-    unsigned score = 0;
     int randomizer = -9999;
     bool flag = false;
     
@@ -54,18 +61,21 @@ int main()
     
     do
     {
+        clear(); // clear previous grids on screen
+        
         flag = false;
+        cout << "Level: " << level << endl;
         cout << "Score: " << score << endl;
         cout << "Index: " << '(' << cur.second << ',' << cur.first << ')' << endl << endl;;
         //pairs ended up being (y,x) for display since format is quad IV on graph
             
         display();
         
-        cout << "enter direction to move one space: u,d,l,r || q == quit" << endl;
+        cout << "enter direction to move one space: w == up, s == down, a == left, d == right | q == quit" << endl;
         cout << ">>";
         cin >> input;
         
-        randomizer = rand() % 20 + 1; // gen a number [1,20], 1 = instant death, 5% chance
+        randomizer = rand() % 25 + 1; // gen a number [1,x], 1 = instant death; y% chance = (1/x)
         if(randomizer == 1) 
         {
             cout << "BANG... you died" << endl;
@@ -74,16 +84,16 @@ int main()
         
         switch(input)
         {            
-             case 'u': cur.first = cur.first - 1; score++; break; 
+             case 'w': cur.first = cur.first - 1; score++; break; 
             // go up one space
             
-            case 'd': cur.first = cur.first + 1; score++; break; 
+            case 's': cur.first = cur.first + 1; score++; break; 
             // go down one space
             
-            case 'l': cur.second = cur.second - 1; score++; break; 
+            case 'a': cur.second = cur.second - 1; score++; break; 
             // go left one space
             
-            case 'r': cur.second = cur.second + 1; score++; break; 
+            case 'd': cur.second = cur.second + 1; score++; break; 
             // go right one space
             
             case 'q': cout << "Quit" << endl; exit(0);// quit && exit
@@ -93,12 +103,13 @@ int main()
         
         if(cur.first < 0 || cur.first > 9 || cur.second < 0 || cur.second > 9) 
         {
-            cout << "You fell of the grid and died..." << endl;
+            cout  << '\n' << "You fell of the grid and died..." << endl;
             break;
         }
         else if(cur.first == B.first && cur.second == B.second)
         {
-            cout << "You Win!" << endl; break;
+            level++;
+            goto terrible_coding_strategy;
         }
         else if(flag == false)
         {
@@ -141,3 +152,12 @@ void display()
     }
     cout << endl;
 }
+//-----------------------------------------------------
+
+///escape character sequence for clear screen
+void clear()
+{
+    cout << "\033c";
+    return;
+}
+//------------------------------------------------------
