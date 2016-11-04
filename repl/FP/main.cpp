@@ -1,43 +1,57 @@
 // FP parser
-
-#include <cstring>
 #include <iostream>
-#include <list>
+#include <cstring>
 #include <string>
+#include <list>
+#include <vector>
 
 using namespace std;
 
 int main()
 {
 
-string input = ""; // initial str to convert char
-char* copy = 0;    // copy to give strtok for parse
-list<int> seq;     // the sequence to fill from string
+string input = "";     // initial str to convert char
+char* copy = 0;        // copy to give strtok for parse
+char* arr = 0;         // temp array
+vector<string> matrix; // argument vector - contains substrings
 
 cout << ">>> ";
 getline(cin, input);
-//strcpy(copy, input.c_str()); // copy string to char array for strtok
-copy = (char*)(input.c_str());
+copy = (char*)(input.c_str()); // copy string to char array for strtok
 
-char* matrix[256] = {0}; // argument vector - contains substrings
-char* arr = 0;
-
-// first pass parse on parentheses
+// 1. first pass parse on "()"
+//--------------------------------
 arr = strtok(copy, "()");
-matrix[0] = arr;
+matrix.push_back(string(arr));
 for(unsigned i = 1; arr != 0; i++)
 {
-    cout << i << endl;
     arr = strtok(NULL, "()");
-    matrix[i] = arr;
+    if(arr)
+    {
+        matrix.push_back(string(arr));
+    }
 }
+//---------------------------------
 
 // parse check
-for(unsigned i = 0; matrix[i] != 0; i++)
+for(unsigned i = 0; i < matrix.size(); i++)
 {
-    cout << matrix[i] << ", ";
+    cout << matrix.at(i) << ',';
 }
 cout << endl;
+
+// now must parse individual matrix substrings individually
+
+// 2. second pass parse on ":"
+
+// for(unsigned i = 1; i <= matrix.size(); i++)
+// {
+//     for()
+//     {
+//          
+//     }
+// }
+
 
 
 return 0;
