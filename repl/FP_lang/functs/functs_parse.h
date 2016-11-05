@@ -1,5 +1,5 @@
-#ifndef __FUNCTS_EVAL__
-#define __FUNCTS_EVAL__
+#ifndef __FUNCTS_PARSE__
+#define __FUNCTS_PARSE__
 
 // #include <algorithm>
 // #include <utility>
@@ -21,17 +21,10 @@
 
 using namespace std; // maybe scope resolve later...
 
-bool eval(std::string s);       // evaluation engine
+bool parse(std::string s);       // parse engine
 
 bool isBalanced(std::string s); // refers to brackets, braces, parentheses...
 
-bool isEqn(std::queue<std::string> Q);
 
+#endif // __FUNCTS_PARSE__
 
-#endif // __FUNCTS_EVAL__
-
-/*
-logic operations : &, |, !
-math operations:  +, -, *, /, %,
-evaluations     : =, != <, >, <=, >=
-*/

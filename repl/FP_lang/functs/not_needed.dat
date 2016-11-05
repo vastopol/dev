@@ -1,21 +1,34 @@
-#include "functs_eval.h"
+// maybe not needed anymore... to FP syntax
 
 
-bool eval(std::string str) // evaluation engine
-{
-    //PRELIMINARY CHECKS
-   if(str.empty()) 
-   {
-      cout << "Error:: empty string" << endl; 
-      return false;
-   }
-   else if(!isBalanced(str))
-   {
-      cout << "Error:: incorrect grammar : (,[,{..." << endl; 
-      return false;
-   }
-   
-   //LOCAL VARS
+bool isEqn(std::queue<std::string> Q);
+
+bool isEqn(std::queue<std::string> Que) // segfault?? maybe
+{    
+    if(Que.empty()) return false; // err chk?
+     
+    while(!Que.empty())
+    {
+        if(Que.front() != "=" && Que.front() != "!=" && Que.front() != "<" && Que.front() != "<=" && Que.front() != ">" && Que.front() != ">=") 
+        {
+            Que.pop();
+        }
+        else
+        {
+            break;
+        }
+    }
+    
+    // should still have pieces left if there is an eval sign
+    return !Que.empty();
+}
+//-------------------------------------------------------------------------------------------
+
+
+// right after prelim checks...
+
+
+//LOCAL VARS
    std::queue<std::string> Que;     // begining string
    std::queue<std::string> QueL;    // if eqn holds left side
    std::queue<std::string> QueR;    // if eqn holds right side
@@ -143,74 +156,3 @@ bool eval(std::string str) // evaluation engine
       cout << "not done expression evaluator" << endl;
         
     }
-        
-
-return false;  
-}
-//-------------------------------------------------------------------------------------------
-
-
-bool isBalanced(string s) // check for ballanced number of separators (, {, [
-{
-    stack<char> ppp;
-    
-    for(string::iterator it = s.begin(); it != s.end(); it++)
-    {
-        if(*it == '(' || *it == '[' || *it == '{')
-        {
-            ppp.push(*it);
-        }
-        else if(*it == ')' || *it == ']' || *it == '}')
-        {
-            if(ppp.empty())
-            {
-                return false;
-            }
-            else
-            {
-                if(*it == ')' && ppp.top() != '(' )
-                {
-                    return false;
-                }
-                else if(*it == ']' && ppp.top() != '[' )
-                {
-                    return false;
-                }
-                else if(*it == '}' && ppp.top() != '{' )
-                {
-                    return false;
-                }
-                else
-                {
-                    ppp.pop();
-                }
-            } 
-        }
-    }
-    
-    return ppp.empty();
-}
-//-------------------------------------------------------------------------------------------
-
-
-bool isEqn(std::queue<std::string> Que) // segfault?? maybe
-{    
-    if(Que.empty()) return false; // err chk?
-     
-    while(!Que.empty())
-    {
-        if(Que.front() != "=" && Que.front() != "!=" && Que.front() != "<" && Que.front() != "<=" && Que.front() != ">" && Que.front() != ">=") 
-        {
-            Que.pop();
-        }
-        else
-        {
-            break;
-        }
-    }
-    
-    // should still have pieces left if there is an eval sign
-    return !Que.empty();
-}
-//-------------------------------------------------------------------------------------------
-

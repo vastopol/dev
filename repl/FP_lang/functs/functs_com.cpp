@@ -1,29 +1,10 @@
 #include "functs_com.h"
-#include "undoc.h"
 
 void com(std::string s)
 {
-    // // UNDOC FEAT... undoc.h
-    // /*//-------------------------------------------------
-    if(s == "unsafe") 
-    {
-        char go = 'X';
-        std::cout << "Are you SURE? Y/N?" << std::endl;
-        std::cout << ">"; std::cin >> go; std::cout << '\n';
-        if(go == 'Y')
-        {        
-            unsafe(); // undoc.h
-        }
-        else
-        {
-            std::cout << "AUTH::Fail" << std::endl;
-        }
-    }
-    // *///--------------------------------------------------
-    
     if(s == "exit")
     {
-        quit();
+        _exit();
     }
     else if(s == "clear")
     {
@@ -42,11 +23,11 @@ void com(std::string s)
 }
 //-------------------------------------------------------------------------------------------
 
-void quit()
+void _exit()
 {
     clr_scr();
     std::cout << "Goodbye." << std::endl;
-    exit(1);
+    exit(0);
 }
 //-------------------------------------------------------------------------------------------
 
@@ -60,13 +41,9 @@ void clr_scr()
 void help()
 {
     std::cout << "GENERAL:" << std::endl;
-    std::cout << "Enter commands OR use \"?: \" operator to evaluate expressions & equations." << std::endl;
+    std::cout << "Enter System commands OR use \"#\" operator to evaluate expressions AND equations." << std::endl;
     std::cout << "Have matching parenthesis and correct syntax and grammar." << std::endl;   //// A = B, A != B, A < B, etc... use only 1 binary evaluator
-    std::cout << "Separete distinct sub-pieces with borders." << std::endl;
-    std::cout << " Ex1. \"?: (1 * 2) = (3 - 1)\"" << std::endl;
-    std::cout << " Ex2. \"?: ((1 + 3) * 3) = ((24 / 3) + 4)\"" << std::endl;
-    std::cout << "Supports operations:" << std::endl <<  " &, |, ~, +, -, *, /, %," << std::endl;
-    std::cout << " =, != <, >, <=, >=" << std::endl;
+    std::cout << "Separete distinct sub-pieces with parenthesis." << std::endl;
     std::cout << std::endl;
     
     std::cout << "COMMANDS:" << std::endl;

@@ -23,13 +23,11 @@
 
 void com(std::string s);
 
-void quit();    // quit routine
+void _exit();    // quit routine
 
 void clr_scr(); // clear screen function
 
 void help();    // help prompt
-
-
 
 
 #endif // __FUNCTS_COM__
