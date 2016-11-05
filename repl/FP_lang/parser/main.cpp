@@ -71,7 +71,7 @@ application
     
 composition  
     f.g
-    where   f.g:x = f:(g:x)
+    where   (f.g):x = f:(g:x)
     
 construction
     where   [1,2,3]  =  {1,2,3}
