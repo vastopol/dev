@@ -23,8 +23,6 @@
 
 void com(std::string s);
 
-void _exit();    // quit routine
-
 void clr_scr(); // clear screen function
 
 void help();    // help prompt

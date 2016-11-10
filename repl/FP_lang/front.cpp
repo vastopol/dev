@@ -15,23 +15,33 @@ std::string input;
 
 do
 {
-    std::cout << ">>";
+    std::cout << ">>> ";
     getline(cin, input);    // get 
-    std::cout << "echo1: " << input << std::endl;  // echo1
     
-    std::string letsee = input.substr(0, 1); // substring start at 0, 3 char long. ergo first 3 char
-    // if starts with "?: " then call eval  && parse with arithmetic expression tree
+    std::string arg1 = input.substr(0, 1); 
+    // substring start at 0 , 1 char long
+    // if starts with "%" then call eval  && parse with arithmetic expression tree
     
-    if(letsee == "#")
+    std::string arg2 = input.substr(0, 4);
+    // substr 0, 3 long
+    // if is "def" then hash
+    
+    if(arg1 == "%") // eval
     {
-        size_t pos = 1;             // real input should be at 4th char
-        input = input.substr(pos);  // input now cut out "?: "
-        std::cout << "echo2: " << input << std::endl;  // echo2
-        parse(input);                // call EVAL()
-    }        
+        size_t pos = 1;             // real input is past signal
+        input = input.substr(pos);  // input now cut out "%"
+        exec(input);                // call EXEC()
+    }   
+    else if(arg2 == "Def ")
+    {
+        input = input.substr(4, (input.size() - 4) ); // cut out "DEF "
+        
+        std::cout << input << std::endl;
+        
+    }
     else 
     {
-        com(input);                 // call COM()
+        com(input); // call COM()
     }
     
 }

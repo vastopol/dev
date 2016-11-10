@@ -21,7 +21,7 @@
 
 using namespace std; // maybe scope resolve later...
 
-bool parse(std::string s);       // parse engine
+bool exec(std::string s);       // parse engine
 
 bool isBalanced(std::string s); // refers to brackets, braces, parentheses...
 
