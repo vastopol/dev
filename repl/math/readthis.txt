@@ -3,8 +3,11 @@ should do it proper:
 
 First fix and clean on srich009 side
     - CS14 lab5 (arithhmetic expression tree)
-    - CS100 lab4 (compositional, structural stuff for tree eval)
+    - CS100 lab4 (compositional, structural, decorator)
+    - CS100 lab6 (command pattern builds on labs 3 & 4)
     
 then clone over here and improve,
 
-then integrate the two for a POSTFIX calculator language like RPL or FORTH
+then integrate the two for a POSTFIX calculator language 
+
+influenced by: DC, RPL/RPL, FORTH

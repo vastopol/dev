@@ -19,7 +19,7 @@ cout << ">>> ";
 getline(cin, input);
 copy = (char*)(input.c_str()); // copy string to char array for strtok
 
-// 1. first pass parse on "()"
+// parse on "()"
 //--------------------------------
 arr = strtok(copy, "()");
 matrix.push_back(string(arr));
