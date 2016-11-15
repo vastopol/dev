@@ -11,18 +11,20 @@ bool parse(std::string str) // evaluation engine
     }
     else if(!isBalanced(str))
     {
-      cout << "ERROR: incorrect grammar : (,[,{..." << endl; 
+      cout << "ERROR: incorrect grammar : \"(), [], {}\"" << endl; 
       return false;
     }
+    
+    std::string s = str; // string to modify so original is intact
     
     while(s.at(s.size()-1) == ' ') // remove any trailing spaces
     {
         s = s.substr(0, (s.size()-1));
     }
     
-    
-    // here
+
     cout << "Parse is unfinished" << endl;
+    // parse on s
     
     
     

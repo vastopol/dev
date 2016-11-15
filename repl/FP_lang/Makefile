@@ -7,6 +7,9 @@ FILES = functs/com.cpp functs/parse.cpp
 # Targets
 front: 
 	$(COMP) $(FLAGS) $(FILES) front.cpp
+	
+test: test.cpp
+		$(COMP) $(FLAGS) test.cpp
 
 debug:
 	$(COMP) $(FLAGS) $(DEBUG) $(FILES) front.cpp
