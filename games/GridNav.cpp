@@ -7,60 +7,30 @@
 using namespace std;
 
 #define _GRID_SIZE_ 10
-char grid[_GRID_SIZE_][_GRID_SIZE_]; //2D playing field
+char grid[_GRID_SIZE_][_GRID_SIZE_]; // 2D playing field
 
 // LOCAL FUNCTIONS
-void display();
-void clear(); //escape character sequence for clear screen
+void display(); // display grid
+void clear();   // escape character sequence for clear screen
+void init(pair<int, int>& A , pair<int, int>& B , pair<int, int>& cur);  // initialize sequence
 
 int main()
 {
-    // keep up here so it wont get reset
+    srand(time(NULL));
     unsigned score = 0; 
     unsigned level = 1;
-    
-    terrible_coding_strategy: // I cant believe I am using a goto statement (see line 111)
-    
-    srand(time(NULL));
-
-    int x = -1;
-    int y = -1;
     pair<int, int> A;
     pair<int, int> B;
     pair<int, int> cur;
     char input = '@';
     int randomizer = -9999;
     bool flag = false;
-
-    //initialize grid
-    for(int i = 0; i < _GRID_SIZE_; i++)
-    {
-        for(int j = 0; j < _GRID_SIZE_; j++)
-        {
-            grid[i][j] = ' ';
-        }
-    }
-       
-    //game is on 10x10 try to cast A on left and B on right    
-    //pair A
-    x = rand() % 4;
-    y = rand() % 4;
-    grid[x][y] = 'A';
-    cur.first = x;
-    cur.second = y;
-    A.first = x;
-    A.second = y;
     
-    //pair B    
-    x = rand() % 4 + 4;
-    y = rand() % 4 + 4;
-    grid[x][y] = 'B';
-    B.first = x;
-    B.second = y;
+    init(A, B, cur); // initialize board for first time
     
     do
     {
-        clear(); // clear previous grids on screen
+        clear(); // clear previous screen
         
         flag = false;
         cout << "Level: " << level << endl;
@@ -68,19 +38,21 @@ int main()
         cout << "Index: " << '(' << cur.second << ',' << cur.first << ')' << endl << endl;;
         //pairs ended up being (y,x) for display since format is quad IV on graph
             
-        display();
+        display(); // print grid
         
         cout << "enter direction to move one space: w == up, s == down, a == left, d == right | q == quit" << endl;
         cout << ">>";
         cin >> input;
         
-        randomizer = rand() % 25 + 1; // gen a number [1,a]; 1 = instant death; b% chance = (1/a)
+        // kill sequence
+        randomizer = rand() % 25 + 1; // gen a number [1,a]; 1 = instant death; b% chance = (1/a), 1/25 = .04%
         if(randomizer == 1) 
         {
             cout << "BANG... you died" << endl;
             break;
         }
         
+        // choose and direct move || quit
         switch(input)
         {            
              case 'w': cur.first = cur.first - 1; score++; break; 
@@ -95,7 +67,7 @@ int main()
             case 'd': cur.second = cur.second + 1; score++; break; 
             // go right one space
             
-            case 'q': cout << "Quit" << endl; exit(0);// quit && exit
+            case 'q': clear(); cout << "Quit" << endl; exit(0); // quit && exit
             
             default: cout << "Error, Try Again?" << endl; flag = true; 
         } 
@@ -108,7 +80,8 @@ int main()
         else if(cur.first == B.first && cur.second == B.second)
         {
             level++;
-            goto terrible_coding_strategy; // goto line 22
+            init(A, B, cur); // reinit board for next level
+            continue;
         }
         else if(flag == false)
         {
@@ -133,7 +106,44 @@ int main()
     
 return 0;
 }
-//------------------------------------------------------------------------------------
+//==========================================================
+//==========================================================
+
+
+void init(pair<int, int>& A , pair<int, int>& B , pair<int, int>& cur)
+{
+    int x = -1;
+    int y = -1;
+    
+    //initialize grid
+    for(int i = 0; i < _GRID_SIZE_; i++)
+    {
+        for(int j = 0; j < _GRID_SIZE_; j++)
+        {
+            grid[i][j] = ' ';
+        }
+    }
+       
+    //game is on 10x10 try to cast A on left and B on right 
+    
+    //pair A
+    x = rand() % 4;
+    y = rand() % 4;
+    grid[x][y] = 'A';
+    cur.first = x;
+    cur.second = y;
+    A.first = x;
+    A.second = y;
+    
+    //pair B    
+    x = rand() % 4 + 4;
+    y = rand() % 4 + 4;
+    grid[x][y] = 'B';
+    B.first = x;
+    B.second = y;
+
+}
+//---------------------------------------------------------
 
    
 void display()
