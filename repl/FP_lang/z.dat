@@ -37,3 +37,22 @@ condition
              =  ~    otherwise
 
 */
+
+
+SYSTEM CALLS
+//------------------
+
+def == the definition function
+
+syntax: def name = value
+
+where element
+   name = atom   
+   x = 3
+   
+OR
+
+where sequence
+   name = {atom,...,atom}   
+   s = {1,2,3}
+

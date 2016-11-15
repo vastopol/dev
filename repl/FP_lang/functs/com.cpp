@@ -8,7 +8,8 @@ void com(std::string s)
     }
     else if(s == "clear")
     {
-        clr_scr();
+        std::cout << "\033c";
+        return;
     }
     else if(s == "help")
     {
@@ -16,19 +17,13 @@ void com(std::string s)
     } 
     else
     {
-        std::cout << "Error:: Unknown Command" << std::endl;
+        std::cout << "ERROR: Unknown Command" << std::endl;
     }
    
    return;
 }
 //-------------------------------------------------------------------------------------------
 
-void clr_scr()
-{
-    std::cout << "\033c";
-    return;
-}
-//-------------------------------------------------------------------------------------------
 
 void help()
 {

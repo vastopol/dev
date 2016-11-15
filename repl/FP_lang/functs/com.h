@@ -21,9 +21,7 @@
 #include <queue>
 
 
-void com(std::string s);
-
-void clr_scr(); // clear screen function
+void com(std::string s); // simple builtins
 
 void help();    // help prompt
 

@@ -6,17 +6,25 @@ bool parse(std::string str) // evaluation engine
     //PRELIMINARY CHECKS
     if(str.empty()) 
     {
-      cout << "Error:: empty string" << endl; 
+      cout << "ERROR: empty string" << endl; 
       return false;
     }
     else if(!isBalanced(str))
     {
-      cout << "Error:: incorrect grammar : (,[,{..." << endl; 
+      cout << "ERROR: incorrect grammar : (,[,{..." << endl; 
       return false;
     }
     
+    while(s.at(s.size()-1) == ' ') // remove any trailing spaces
+    {
+        s = s.substr(0, (s.size()-1));
+    }
+    
+    
     // here
-    cout << "Parse here" << endl;
+    cout << "Parse is unfinished" << endl;
+    
+    
     
 return false;  
 }
