@@ -1,5 +1,5 @@
-#ifndef __FUNCTS_COM__
-#define __FUNCTS_COM__
+#ifndef __COM__
+#define __COM__
 
 // #include <algorithm>
 // #include <utility>
@@ -28,4 +28,4 @@ void clr_scr(); // clear screen function
 void help();    // help prompt
 
 
-#endif // __FUNCTS_COM__
+#endif // __COM__

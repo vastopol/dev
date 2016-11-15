@@ -2,7 +2,7 @@
 COMP = g++
 FLAGS = -Wall -Werror -ansi -pedantic
 DEBUG = -g
-FILES = functs/functs_com.cpp functs/functs_parse.cpp
+FILES = functs/com.cpp functs/parse.cpp
 
 # Targets
 front: 

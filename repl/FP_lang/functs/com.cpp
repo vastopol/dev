@@ -1,4 +1,4 @@
-#include "functs_com.h"
+#include "com.h"
 
 void com(std::string s)
 {

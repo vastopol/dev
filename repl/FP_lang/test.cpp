@@ -20,6 +20,8 @@ getline(cin, input);
 copy = (char*)(input.c_str()); // copy string to char array for strtok
 
 // parse on "()"
+///************************************************************
+
 //--------------------------------
 arr = strtok(copy, "()");
 matrix.push_back(string(arr));
@@ -33,12 +35,15 @@ for(unsigned i = 1; arr != 0; i++)
 }
 //---------------------------------
 
+
 // parse check
 for(unsigned i = 0; i < matrix.size(); i++)
 {
     cout << matrix.at(i) << ',';
 }
 cout << endl;
+
+///*************************************************************
 
 // now must parse individual matrix substrings individually
 

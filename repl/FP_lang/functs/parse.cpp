@@ -1,7 +1,7 @@
-#include "functs_parse.h"
+#include "parse.h"
 
 
-bool exec(std::string str) // evaluation engine
+bool parse(std::string str) // evaluation engine
 {
     //PRELIMINARY CHECKS
     if(str.empty()) 

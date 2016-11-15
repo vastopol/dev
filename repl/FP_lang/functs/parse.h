@@ -1,5 +1,5 @@
-#ifndef __FUNCTS_PARSE__
-#define __FUNCTS_PARSE__
+#ifndef __PARSE__
+#define __PARSE__
 
 // #include <algorithm>
 // #include <utility>
@@ -21,10 +21,10 @@
 
 using namespace std; // maybe scope resolve later...
 
-bool exec(std::string s);       // parse engine
+bool parse(std::string s);       // parse engine
 
 bool isBalanced(std::string s); // refers to brackets, braces, parentheses...
 
 
-#endif // __FUNCTS_PARSE__
+#endif // __PARSE__
 
