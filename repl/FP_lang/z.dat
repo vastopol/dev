@@ -40,7 +40,7 @@ condition
 
 
 SYSTEM CALLS
-//------------------
+///******************************************
 
 def == the definition function
 
@@ -55,4 +55,17 @@ OR
 where sequence
    name = {atom,...,atom}   
    s = {1,2,3}
+//----------------------------------------
 
+ls == prints contents of memory stored variables
+
+syntax: ls
+
+//----------------------------------------
+
+rm  == delete variable from memory
+
+syntax: rm var
+
+
+///*********************************************

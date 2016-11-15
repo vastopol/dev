@@ -18,6 +18,10 @@ void com(std::string s)
     else
     {
         std::cout << "ERROR: Unknown Command" << std::endl;
+        
+        // put the exec function here handle sys coms for memory management
+        // handle the unknown command in the exec function
+        
     }
    
    return;
