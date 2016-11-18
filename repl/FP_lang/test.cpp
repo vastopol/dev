@@ -10,6 +10,8 @@ using namespace std;
 
 void exec(std::string str); // parse internal mockup for definiton
 void def(std::string s); // definition, hashing name to value
+void rem(std::string s); // access hashes and remove var if found
+void print(); // print element hash, print list hash
 
 int main(){
 
@@ -43,6 +45,24 @@ void exec(std::string str)
         def( str.substr(4, (str.size() - 4) ));
         return;
     }
+    else if(str.substr(0, 2) == "rm")
+    {
+        // syntax: "rm name"
+        unsigned pos = str.find(" "); // location of first space
+        if(pos != 2)
+        {
+            std::cout << "ERROR1: Syntax" << std::endl;
+            return;
+        }   
+        
+        // remove the variable
+        rem( str.substr(3, (str.size() - 1) ));
+    }
+    else if(str.substr(0, 2) == "ls")
+    {
+        //print all vars
+        print();
+    }
     else
     {
         std::cout << "other" << std::endl;
@@ -74,11 +94,11 @@ void def(std::string s) // definition function
     //**************************************************************
     if(val.at(0) == '{' && val.at(val.size() - 1) == '}' ) // sequence
     {
-        std::cout << "sequence" << std::endl;
+        std::cout << "Sequence: " << std::endl;
         
         val = val.substr(1, (val.size() - 1)); // gone {
         val = val.substr(0, (val.size() - 1)); // gone }
-        if(val.empty()){std::cout << "ERROR6: Def of Empty seq." << std::endl; return;}
+        if(val.empty()){std::cout << "ERROR6: Def of Empty seq.\nPush null list later" << std::endl; return;}
         
         std::list<string> ls;
         char* copy = (char*)(val.c_str());        // copy to give strtok for parse
@@ -106,10 +126,24 @@ void def(std::string s) // definition function
     }
     else // element
     {
-        std::cout << "element" << std::endl;
+        std::cout << "element: " << std::endl;
+        std::cout << var << std::endl;        
+        std::cout << val << std::endl;
+        
     }
     //******************************************************************************
     
 }
 //-----------------------------------------------------------------------------------------
 
+void rem(std::string s) // access hashes and remove var if found
+{
+    std::cout << s << std::endl;
+}
+//------------------------------------------------------------------------------------------
+
+void print() // print element hash, print list hash
+{
+    std::cout << "print function" << std::endl;
+}
+//------------------------------------------------------------------------------------------
