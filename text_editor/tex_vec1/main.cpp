@@ -12,23 +12,19 @@ using namespace std;
 
 ///LOCAL FUNCTIONS
 void chooseMod(string&);
-
 int Prompt();
-
 void saveFunc(string&, std::vector<string>&);
-
 
 int main()
 {
     clearScreen();
-
     printIntro();
 
     vector<string> paragraph;
     string sentence;
     int decision1 = 0;     /// primary choice
+    
     //char decision4 = 'x';  /// re-enter str: inside decision1 check chain, branch 3
-
     //char endLoop = 'n';
 
     do{
@@ -38,7 +34,7 @@ int main()
 
         decision1 = Prompt();
 
-        if(decision1 == 1)
+        if(decision1 == 1) // ANALYZE
         {
             cout << endl;
             StringAnalyze(sentence);
@@ -46,7 +42,7 @@ int main()
             
             saveFunc(sentence, paragraph);
         }
-        else if (decision1 == 2) // mod str
+        else if (decision1 == 2) // MODIFY
         {
             chooseMod(sentence);
             cout << endl;
@@ -84,14 +80,12 @@ int main()
             }
 
         }
-        else if(decision1 == 4)
+        else if(decision1 == 4) // SAVE
         {
             paragraph.push_back(sentence);
             cout << "Saved to vector" << endl;
-            //cout << "Vector now contains: " << endl;
-            //vectorDisplay(paragraph);
         }
-        else if(decision1 == 5)
+        else if(decision1 == 5) // DISPLAY
         {
             saveFunc(sentence, paragraph);
             cout << endl;
@@ -159,7 +153,7 @@ int main()
         {
             cout << "ERROR INVALID ENTRY: decision1" << endl;
         }
-                cout << endl;
+        cout << endl;
 
         // /// this part continues while loop if need quit option
         // cout << endl;
@@ -195,7 +189,7 @@ int Prompt()
     cinCheck();
     return d1;
 }
-
+//---------------------------------------------------------------------------------------
 
 void chooseMod(string& sentence)
 {
@@ -204,38 +198,31 @@ void chooseMod(string& sentence)
     cout << "Enter 1 toUpper, enter 2 toLower, enter 3 to reverse" << endl;
     cout << ">>";
     cin >> decision2;
+    
     cinCheck();
+    if(decision2 > 3 || decision2 < 1){ cout << "ERROR INVALID ENTRY: decision2" << endl; return;}
+
+    cout << endl;
+    cout << "Original sentence: " << sentence << endl;
+    cout << "Changed sentence : ";
 
     if(decision2 == 1) ///UPPER
     {
-        cout << endl;
-        cout << "Original sentence: " << sentence << endl;
-        cout << "Changed sentence : ";
         StringUpper(sentence);
-        cout << sentence << endl;
     }
     else if(decision2 == 2) ///LOWER
     {
-        cout << endl;
-        cout << "Original sentence: " << sentence << endl;
-        cout << "Changed sentence : ";
         StringLower(sentence);
-        cout << sentence << endl;
     }
     else if(decision2 == 3) ///REVERSE
     {
-        cout << endl;
-        cout << "Original sentence: " << sentence << endl;
-        cout << "Changed sentence : ";
         StringReverse(sentence);
-        cout << sentence << endl;
     }
-    else
-    {
-        cout << "ERROR INVALID ENTRY: decision2" << endl;
-    }
+    
+    cout << sentence << endl;
     return;
 }
+//---------------------------------------------------------------------------------------
 
 
 void saveFunc(string& sentence, std::vector<string>& paragraph)
@@ -249,8 +236,7 @@ void saveFunc(string& sentence, std::vector<string>& paragraph)
     {
         paragraph.push_back(sentence);
         cout << "Saved to vector" << endl;
-       // cout << "Vector now contains: " << endl;
-       // vectorDisplay(paragraph);
     }
     return;
 }
+//---------------------------------------------------------------------------------------

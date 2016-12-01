@@ -7,7 +7,6 @@
 
 using namespace std;
 
-
 ///input check function
 void cinCheck()
 {
@@ -15,7 +14,6 @@ void cinCheck()
     {
         cin.clear(); /// fix buffer flags ??
         cin.ignore(1000, '\n'); /// ignore anyhting in the buffer??
-        //cout << "Error with cin, cleared && reset buffer..." << endl;
     }
     return;
 }
@@ -167,7 +165,6 @@ void IsStringConsonant(string sentence)
 
     return;
 }
-
 ///==================================================================
 
 
@@ -215,8 +212,6 @@ void IsStringSymbol(string sentence)
 
     return;
 }
-
-
 ///==================================================================
 
 ///function to analyze entered string
@@ -296,7 +291,6 @@ void StringUpper(string &sentence)
     {
         sentence.at(cnt) = toupper(sentence.at(cnt));
     }
-    return;
 }
 ///==============================================================================================
 
@@ -308,7 +302,6 @@ void StringLower(string &sentence)
     {
         sentence.at(cnt) = tolower(sentence.at(cnt));
     }
-    return;
 }
 ///==================================================================================================
 
@@ -324,7 +317,6 @@ void StringReverse(string& s)
     {   
         swap( s.at(i), s.at(s.size() -(1 + i) ) );
     }
-    return;
 }
 ///===================================================================================================
 
@@ -334,19 +326,12 @@ void vectorDisplay(const vector<string> &paragraph)
     if(paragraph.size() == 0)
     {
         cout << "Empty" << endl;
+        return;
     }
-    else
+
+    for(unsigned int i = 0; i < paragraph.size(); i++)
     {
-        for(unsigned int i = 0; i < paragraph.size(); i++)
-        {
-            cout << i + 1 << ".) "  << paragraph.at(i) << endl;
-        }
+        cout << i + 1 << ".) "  << paragraph.at(i) << endl;
     }
-    return;
 }
-
 ///=================================================================================================
-
-
-
-///
