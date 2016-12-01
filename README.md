@@ -2,7 +2,8 @@
 
 Small software development projects for Linux using C/C++ 
 
+* algorithms for strings
 * games
-* music_theory
-* sorting_stuff
-* text_editor
+* musical set theory
+* sorting
+* text editors
