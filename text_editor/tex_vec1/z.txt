@@ -1,12 +1,11 @@
-simple text editing program
+TEXT VECTOR PROGRAM
+VERSION 1.5
+--------------------
 
-stores strings in vector
-
-VERSION 1.0
-
+simple text editing
 after entering string 
 
-options
+options:
 
 1.) analyze string
 2.) modify string
@@ -15,4 +14,3 @@ options
 5.) display vector
 6.) erase string from vector
 7.) output vector to a file then END program
-

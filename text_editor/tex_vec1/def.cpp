@@ -1,4 +1,3 @@
-//VERSION 1.0
 #include "def.h"
 
 #include <iostream>
@@ -31,10 +30,8 @@ void clearScreen()
 void printIntro()
 {
     cout << "TEXT VECTOR PROGRAM" << endl;
-    cout << "You can enter a string and analyze/modify," << endl;
-    cout << "When done can store string in vector" << endl;
-    cout << "Vector of strings can be called and displayed." << endl;
-    cout << "Or output vector to a file " << endl;
+    cout << "Enter strings and analyze/modify, then store strings in a vector" << endl;
+    cout << "Vector of strings can be called and displayed, Or output to a file " << endl;
     cout << endl;
     return;
 }
@@ -291,6 +288,7 @@ void StringUpper(string &sentence)
     {
         sentence.at(cnt) = toupper(sentence.at(cnt));
     }
+    return;
 }
 ///==============================================================================================
 
@@ -302,6 +300,7 @@ void StringLower(string &sentence)
     {
         sentence.at(cnt) = tolower(sentence.at(cnt));
     }
+    return;
 }
 ///==================================================================================================
 
@@ -317,6 +316,7 @@ void StringReverse(string& s)
     {   
         swap( s.at(i), s.at(s.size() -(1 + i) ) );
     }
+    return;
 }
 ///===================================================================================================
 
@@ -333,5 +333,6 @@ void vectorDisplay(const vector<string> &paragraph)
     {
         cout << i + 1 << ".) "  << paragraph.at(i) << endl;
     }
+    return;
 }
 ///=================================================================================================

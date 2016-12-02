@@ -1,4 +1,3 @@
-//VERSION 1.0
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,8 +10,8 @@
 using namespace std;
 
 ///LOCAL FUNCTIONS
-void chooseMod(string&);
 int Prompt();
+void chooseMod(string&);
 void saveFunc(string&, std::vector<string>&);
 
 int main()
@@ -23,9 +22,6 @@ int main()
     vector<string> paragraph;
     string sentence;
     int decision1 = 0;     /// primary choice
-    
-    //char decision4 = 'x';  /// re-enter str: inside decision1 check chain, branch 3
-    //char endLoop = 'n';
 
     do{
         cout << "Enter a sentence: " << endl;
@@ -56,27 +52,11 @@ int main()
             if(sentence.empty())
             {
                 cout << "Sentence cleared " << endl;
-
-                // ///offer re-enter && save
-                // cout << endl << "Re-enter string? y/n" << endl;
-                // cin >> decision4;
-                // cinCheck();
-                // if(decision4 == 'y')
-                // {
-                //     ///allows re-entry of another sentence
-                //     cin.clear();
-                //     cin.ignore(1000, '\n');
-
-                //     cout << "Enter a new sentence: " << endl;
-                //     getline(cin, sentence);
-                //     cout << endl;
-
-                //     saveFunc(sentence, paragraph);
-                // }
             }
             else
             {
                 cout << "ERROR: clearing sentence" << endl;
+                exit(1);
             }
 
         }
@@ -136,6 +116,7 @@ int main()
             if(!OutFile)
             {
                 cout << "ERROR: could not open file: " << oFileName << endl;
+                exit(1);
             }
             else
             {
@@ -155,18 +136,8 @@ int main()
         }
         cout << endl;
 
-        // /// this part continues while loop if need quit option
-        // cout << endl;
-        // cout << "QUIT??  y/n" << endl;
-        // cin >> endLoop;
-        // cinCheck();
-        // cout << endl;
-
-        // ///also allows re-entry of more sentences if endLoop != 'y'
-        cin.clear();
-        cin.ignore(1000, '\n');
-
-    //}while( endLoop != 'y');
+        cinCheck();
+        
     }while(1);
 
     cout << endl;
@@ -180,11 +151,11 @@ return 0;
 int Prompt()
 {
     int d1 = 0;
-    cout << "Choose what you want to do to the sentence" << endl;
+    cout << endl;
     cout << "Enter 1 to analyze str, enter 2 to Modify str, enter 3 to clear str," << endl;
     cout << "Enter 4 to save str to vector, enter 5 to display vector, enter 6 to erase from vector," << endl;
     cout << "Enter 7 output vector to a file then END" << endl;
-    cout << ">>";
+    cout << ">> ";
     cin >> d1;
     cinCheck();
     return d1;
@@ -196,7 +167,7 @@ void chooseMod(string& sentence)
     int decision2 = 0;     /// str mod
 
     cout << "Enter 1 toUpper, enter 2 toLower, enter 3 to reverse" << endl;
-    cout << ">>";
+    cout << ">> ";
     cin >> decision2;
     
     cinCheck();
