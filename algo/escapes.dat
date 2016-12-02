@@ -1,0 +1,5 @@
+ASCII escape codes
+
+"\n"    == newline
+"\t"    == tab
+"\033c" == clear sequence
