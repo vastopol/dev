@@ -36,14 +36,14 @@ int main()
             StringAnalyze(sentence);
             cout << endl;
             
-            saveFunc(sentence, paragraph);
+            saveFunc(sentence, paragraph); // save last entered sentence after
         }
         else if (decision1 == 2) // MODIFY
         {
             chooseMod(sentence);
             cout << endl;
 
-            saveFunc(sentence, paragraph);
+            saveFunc(sentence, paragraph); // save last entered sentence after
         }
         else if (decision1 == 3)
         {
@@ -58,7 +58,6 @@ int main()
                 cout << "ERROR: clearing sentence" << endl;
                 exit(1);
             }
-
         }
         else if(decision1 == 4) // SAVE
         {
@@ -67,17 +66,15 @@ int main()
         }
         else if(decision1 == 5) // DISPLAY
         {
-            saveFunc(sentence, paragraph);
+            saveFunc(sentence, paragraph); // save last entered sentence before
             cout << endl;
             
             cout << "Vector contains: " << endl;
             vectorDisplay(paragraph);
         }
-        else if(decision1 == 6)
-        {
-            cout << "fix to erase from vector" <<  endl;
-            
-            saveFunc(sentence, paragraph);
+        else if(decision1 == 6) // fix to erase from vector
+        {        
+            saveFunc(sentence, paragraph); // save last entered sentence before
             cout << endl;
             
             int numDel = -99;
@@ -102,7 +99,7 @@ int main()
         }
         else if(decision1 == 7)
         {
-            saveFunc(sentence, paragraph);
+            saveFunc(sentence, paragraph); // save last entered sentence before
             cout << endl;
             
             ofstream OutFile;
