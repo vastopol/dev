@@ -1,4 +1,5 @@
-//VERSION 1.0
+// Sort Race Harness
+
 #include "simple_sort.h"
 
 #include <cstdlib>

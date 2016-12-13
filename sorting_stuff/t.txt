@@ -1,8 +1,11 @@
+Vector based sorting analysis
+
 CLOCK RACE TIME COMPARISON
-g++ clock_race.cpp simple_sort.cpp
-sorting implementations are in simple_sort
-times are measured in milliseconds
+Times are measured in milliseconds.
+harness: clock_race.cpp
+sorting implementations:simple_sort.cpp
+
 
 N^2 SORTING COMPARISON
-compares bubble and selection sort on array of random values
-shows total steps and swaps for each iteration 
+compares bubble and selection sort on array of random values.
+shows total steps and swaps for each iteration.

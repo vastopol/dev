@@ -1,4 +1,5 @@
-//VERSION 1.0
+// Sorting Function Declaration
+
 #include <iostream>
 #include <vector>
 #include <iterator>

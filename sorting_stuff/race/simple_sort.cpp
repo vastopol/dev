@@ -1,4 +1,5 @@
-//VERSION 1.0
+// Sorting Function Implementation
+
 #include "simple_sort.h"
 
 #include <algorithm>

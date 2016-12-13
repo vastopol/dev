@@ -1,4 +1,5 @@
-//VERSION 1.0
+/* Bubble Sort vs. Selection Sort */
+
 #include <algorithm>
 #include <cstdlib>
 #include <ctime>
@@ -8,19 +9,12 @@
 
 using namespace std;
 
-//Global function definition
+//Local function declarations
 void selSort(vector<int> &v);
 
 void bubSort(vector<int> &v);
 
-void display(const vector<int> &v)
-{
-    for(int i = 0; i < v.size(); i++)
-    {
-        cout << v.at(i) << ", ";
-    }
-    cout << endl;
-}
+void display(const vector<int> &v);
 
 int main()
 {
@@ -68,7 +62,7 @@ return 0;
 //==============================================
 
 
-//Global function implementation
+// Local function implementations 
 void selSort(vector<int> &v)
 {
     cout << "start of sort" << endl << endl;
@@ -118,3 +112,14 @@ void bubSort(vector<int> &v)
     cout << "end of sort" << endl;
     return;
 }
+//-----------------------------------------------
+
+void display(const vector<int> &v)
+{
+    for(int i = 0; i < v.size(); i++)
+    {
+        cout << v.at(i) << ", ";
+    }
+    cout << endl;
+}
+//------------------------------------------------
