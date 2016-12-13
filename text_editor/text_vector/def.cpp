@@ -30,7 +30,7 @@ void clearScreen()
 void printIntro()
 {
     cout << "TEXT VECTOR PROGRAM" << endl;
-    cout << "Enter strings and analyze/modify, then store strings in a vector" << endl;
+    cout << "Enter strings, analyze/modify, store strings in a vector." << endl;
     cout << "Vector of strings can be called and displayed, Or output to a file " << endl;
     cout << endl;
     return;
@@ -57,35 +57,19 @@ void IsStringVowel(string sentence)
             s1.at(i) = toupper(s1.at(i));
             temp = s1.at(i);
 
-            if(temp == 'A')
+            if(temp == 'A' || temp == 'E' || temp == 'I' || temp == 'O' || temp == 'U' )
             {
-            cout << "1";
-            }
-            else if(temp == 'E')
-            {
-            cout << "1";
-            }
-            else if(temp == 'I')
-            {
-            cout << "1";
-            }
-            else if(temp == 'O')
-            {
-            cout << "1";
-            }
-            else if(temp == 'U')
-            {
-            cout << "1";
+                cout << "1";
             }
             else
             {
-            cout << "0";
+                cout << "0";
             }
         }
         else
         {
-        cout << "0";
-        }
+            cout << "0";
+        } 
     }
     cout << endl;
 
@@ -113,51 +97,20 @@ void IsStringConsonant(string sentence)
             s1.at(i) = toupper(s1.at(i));
             temp = s1.at(i);
 
-            if(temp != 'A')
+            if(temp != 'A' && temp != 'E' && temp != 'I' && temp != 'O' && temp != 'U')
             {
-                if(temp != 'E')
-                {
-                    if(temp != 'I')
-                    {
-                        if(temp != 'O')
-                        {
-                            if(temp != 'U')
-                            {
-                                cout << "1";
-                            }
-                            else
-                            {
-                            cout << "0";
-                            } /// U
-                        }
-                        else
-                        {
-                        cout << "0";
-                        }/// O
-                    }
-                    else
-                    {
-                    cout << "0";
-                    }/// I
-                }
-                else
-                {
-                cout << "0";
-                } /// E
+                cout << "1";
             }
             else
             {
-            cout << "0";
+                cout << "0";
             }
-
-        } ///end if block
+        } 
         else
         {
-            ///if bool outs == false
             cout << "0";
         }
-
-    } /// for loop end
+    } 
     cout << endl;
 
     return;

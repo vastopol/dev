@@ -2,7 +2,6 @@ TEXT VECTOR PROGRAM
 VERSION 1.5
 --------------------
 
-simple text editing
 after entering string 
 
 options:
