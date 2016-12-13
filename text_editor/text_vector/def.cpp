@@ -6,18 +6,6 @@
 
 using namespace std;
 
-///input check function
-void cinCheck()
-{
-    if(!cin.good()) /// Fix if CIN BROKEN
-    {
-        cin.clear(); /// fix buffer flags ??
-        cin.ignore(1000, '\n'); /// ignore anyhting in the buffer??
-    }
-    return;
-}
-///============================================================
-
 ///escape character sequence for clear screen
 void clearScreen()
 {
@@ -29,10 +17,11 @@ void clearScreen()
 
 void printIntro()
 {
-    cout << "TEXT VECTOR PROGRAM" << endl;
-    cout << "Enter strings, analyze/modify, store strings in a vector." << endl;
-    cout << "Vector of strings can be called and displayed, Or output to a file " << endl;
-    cout << endl;
+    cout << "**********************************************************************" << endl;
+    cout << "* TEXT VECTOR PROGRAM                                                *" << endl;
+    cout << "* Enter strings, analyze/modify, store strings in a vector.          *" << endl;
+    cout << "* Vector of strings can be called and displayed, Or output to a file *" << endl;
+    cout << "**********************************************************************" << endl;
     return;
 }
 ///===========================================================
@@ -284,7 +273,7 @@ void vectorDisplay(const vector<string> &paragraph)
 
     for(unsigned int i = 0; i < paragraph.size(); i++)
     {
-        cout << i + 1 << ".) "  << paragraph.at(i) << endl;
+        cout << i << ".) "  << paragraph.at(i) << endl;
     }
     return;
 }

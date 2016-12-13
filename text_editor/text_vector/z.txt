@@ -1,15 +1,13 @@
 TEXT VECTOR PROGRAM
-VERSION 1.5
+VERSION 2.0
 --------------------
-
-after entering string 
 
 options:
 
-1.) analyze string
-2.) modify string
-3.) clear string
-4.) save string to vector
+1.) write string
+2.) erase string
+3.) modify string
+4.) analyze string
 5.) display vector
-6.) erase string from vector
-7.) output vector to a file then END program
+6.) clear screen
+7.) write to file then END program

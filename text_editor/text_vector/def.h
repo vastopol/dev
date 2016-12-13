@@ -7,8 +7,6 @@
 
 using namespace std;
 
-void cinCheck();
-
 void clearScreen();
 
 void printIntro();
