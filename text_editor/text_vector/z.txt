@@ -1,13 +1,17 @@
 TEXT VECTOR PROGRAM
 VERSION 2.0
---------------------
-
+----------------------------------
 options:
-
-1.) write string
-2.) erase string
-3.) modify string
-4.) analyze string
+0.) enter string
+1.) insert from
+2.) erase string at
+3.) modify string at
+4.) analyze string at
 5.) display vector
 6.) clear screen
 7.) write to file then END program
+-----------------------------------
+
+Notes:
+- string modification operatiorns: Reverse, toUpper, toLower
+- default selector index is 0 for: insert, erase, modify, analyze

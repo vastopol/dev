@@ -11,7 +11,7 @@
 using namespace std;
 
 ///LOCAL FUNCTIONS
-string Prompt();   // initial opton select 
+int Prompt();   // initial opton select 
 unsigned select(); // vector index selector
 void chooseMod(string&);
 void cinCheck();
@@ -23,28 +23,49 @@ int main()
     printIntro();
 
     vector<string> paragraph;
-    string sentence;
-    string choice = "";     /// primary choice
+    string sentence = "";
 
     do
-    {
-        choice = Prompt(); // get decision
-        
-        switch( atoi( choice.c_str() ) )
+    {    
+        switch( Prompt() ) // initial decision function/prompt
         {
-            case 1: // Write to vector
+            case 0: // Write to vector
                 {
                     cout << "Enter a sentence: " << endl;
+                    cin.ignore();
                     getline(cin, sentence);
-                    cout << "\nYou entered: \n" << sentence << endl;
+                    cout << endl << "You entered:" << endl << sentence << endl;
                     paragraph.push_back(sentence);
+                    break;
+                }
+            case 1:
+                {
+                    cout << "Insert" << endl;
+                    unsigned a = select();
+                    
+                    cout << "Enter a sentence: " << endl;
+                    cin.ignore();
+                    getline(cin, sentence);
+                    cout << endl << "You entered:" << endl << sentence << endl;
+                    
+                    if(a < 0)
+                    {
+                        cout << "ERROR: Size" << endl;
+                    }
+                    else if( a >= paragraph.size() )
+                    {
+                        paragraph.push_back(sentence);
+                    }
+                    else
+                    {
+                        paragraph.insert( (paragraph.begin() + a) , sentence );
+                    }
                     break;
                 }
             case 2: // Erase from vector
                 {
                     cout << "Remove" << endl;
-                    unsigned a = 0;
-                    a = select();
+                    unsigned a = select();
                     if( a < 0 || a >= paragraph.size() )
                     {
                         cout << "ERROR: Size" << endl;
@@ -58,15 +79,14 @@ int main()
             case 3: // Modify string
                 {
                     cout << "Modify" << endl;
-                    unsigned a = 0;
-                    a = select();
+                    unsigned a = select();
                     if( a < 0 || a >= paragraph.size() )
                     {
                         cout << "ERROR: Size" << endl;
                     }
                     else
                     {
-                        chooseMod( paragraph.at( a ) );
+                        chooseMod( paragraph.at(a) );
                         cout << endl;
                     }
                     break;
@@ -83,7 +103,7 @@ int main()
                     else
                     {
                         cout << endl;
-                        StringAnalyze( paragraph.at( a ) );
+                        StringAnalyze( paragraph.at(a) );
                         cout << endl;
                     }
                     break;
@@ -101,6 +121,7 @@ int main()
                     string oFileName;
                     
                     cout << "Enter output file name:" << endl;
+                    cin.ignore();
                     getline(cin, oFileName);
                     
                     OutFile.open(oFileName.c_str());
@@ -117,7 +138,7 @@ int main()
                         }
                     }
                     
-                    cout << "\nSuccessful Print\nEND OF PROGRAM" << endl;
+                    cout << endl << "Successful Print" << endl << "END OF PROGRAM" << endl;
                     return 0;
                 }
             default: cout << "ERROR: Invalid Choice" << endl; break;
@@ -131,13 +152,15 @@ return 0;
 //======================================================================
 //=====================================================================
 
-string Prompt()
+int Prompt()
 {
-    string d;
-    cout << "\nChoose Option: \n1 = Write, 2 = Erase, 3 = Modify, 4 = Analyze,\n";
-    cout << "5 = View, 6 = Clear Screen, 7 = Save && Exit\n";
+    int d;
+    cout << endl << "Choose Option:" << endl;
+    cout << "0 = Write, 1 = Insert from, 2 = Erase, 3 = Modify" << endl;
+    cout << "4 = Analyze, 5 = View, 6 = Clear Screen, 7 = Save && Exit" << endl;
     cout << ">> ";
-    getline(cin, d);
+    cin >> d;
+    cinCheck();
     return d;
 }
 //---------------------------------------------------------------------------------------
@@ -145,7 +168,7 @@ string Prompt()
 unsigned select()
 {
     unsigned i = 0;
-    cout << "Select vector index\n>> ";
+    cout << "Select vector index" << endl << ">> ";
     cin >> i;
     cinCheck();
     return i;
