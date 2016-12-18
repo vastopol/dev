@@ -1,8 +1,10 @@
-//  2 Player Tic Tac Toe
+// Tic Tac Toe v.s. CPU
 
 #include <iostream>
 #include <string>
- 
+#include <ctime>
+#include <cstdlib>
+
 using namespace std; 
 
 // Declare global variables 
@@ -13,12 +15,13 @@ void showBoard ( );
 bool moveIsValid (int m);
 int whoWon ( );  // Returns 0 if no one has won, 1 if player 1 has won, and 2 if player 2 has won
 
-void main ( ) 
+int main() 
 { 
-
-   // Declare local variables 
+	//Seeding the rand () function
+	srand (time (NULL) );
+	
+	// Declare local variables
 	string Player_1_Name;
-	string Player_2_Name;
 	int Whose_Turn = 1; // =1 means its player 1's turn
 	int Move; // stores where they want to move
 	int Total_Moves = 0;
@@ -37,31 +40,32 @@ void main ( )
 	// Get the players names
    cout << "Player 1: Enter your name" << endl;
    cin >> Player_1_Name;
-   cout << "Player 2: Enter your name" << endl;
-   cin >> Player_2_Name;
-
+   
    while (whoWon ( ) == 0 && Total_Moves < 9)
    {
 	   //do this until valid move entered
 	   do
 	  {
-		   // Show the board 
 		   showBoard ( ); 
 
 		   // tell which player to move
 		   if (Whose_Turn == 1)
 		   {
-			   cout << Player_1_Name << ", It's your turn." << endl;
-		   }
+			cout << Player_1_Name << ", It's your turn." << endl;
+			
+		  	// Get move
+			cout << "Enter the number of the spot you woluld like to move to." << endl;
+			cin >> Move;
+			}
+			
 		   else
-		   {
-			  cout << Player_2_Name << ", It's your turn." << endl;
-		   }
-
-		   // Get move
-		   cout << "Enter the number of the spot you woluld like to move to." << endl;
-		   cin >> Move;
-	   } while (moveIsValid (Move) != true);
+		  {
+			  cout << "CPU's turn" << endl;
+			  Move = rand () % 8 + 1;
+		  }
+	  
+	  } while (moveIsValid (Move) != true);
+		
 
 	  // add 1 to total moves
 	  Total_Moves++;
@@ -81,7 +85,7 @@ void main ( )
 			Whose_Turn = 1;
 		   }
 	   }
-	}
+   }
    
    //show the board
     showBoard ();
@@ -92,16 +96,18 @@ void main ( )
    } 
    else if (whoWon ( ) == 2) 
    { 
-      cout << Player_2_Name << " has won the game!" << endl; 
+      cout << "CPU has won the game!" << endl; 
    } 
    else
    {
 	   cout << "It's a Tie Game" << endl;
    }
 
-	system ("PAUSE");
 
-} 
+return 0;
+}
+//=======================================================
+//=======================================================
 
 
 void showBoard ( ) { 
