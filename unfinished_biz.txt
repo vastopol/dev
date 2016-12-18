@@ -2,8 +2,8 @@ Unfinished projects:
 
 * text_editor -> editr2
 
-* organize random trash
-
 * games -> tic_tac_toe better
 
 * algo -> set up algorithm collection
+
+* organize random trash
