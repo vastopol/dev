@@ -2,10 +2,39 @@
 
 #include <iostream>
 #include <string>
+
 using namespace std;
 
-// FIXME: Use a static variable to count permutations. Why must it be static?
+//  variable to count permutations.
 int count = 1;
+
+// local function
+void PermuteString(string head, string tail);
+
+//========================================================
+int main() 
+{
+   const string PROMPT_STRING = "Enter a string to permute (use ctrl-C to exit): ";
+   string input = "";
+   
+   do
+   {
+      count = 1; // reinit
+      input = ""; // reinit
+      
+      // Get input and permute the string
+      cout << PROMPT_STRING << endl;
+      cin >> input;
+      PermuteString("", input);
+   } 
+   while (input.length() > 0);
+   
+   cout << "Done." << endl;
+
+   return 0;
+}
+//========================================================
+
 
 void PermuteString(string head, string tail) 
 {
@@ -17,17 +46,16 @@ void PermuteString(string head, string tail)
    len = tail.length();
    if (len <= 1)
    {
-      // FIXME: Output the permutation count on each line too
+      // Output the permutation count on each line too
       cout << count << ") ";
       count++;
       cout << head + tail << endl;
    }
    else 
    { 
-      // FIXME: Change the loop to output permutations in reverse order
-       for (i = 0; i < len; ++i) //for(i = len - 1; i >= 0; --i)
+      // loop to output permutations
+       for (i = 0; i < len; ++i) 
       {
-         
          current = tail[i];           // Get next leading character
          newPermute = tail.substr(0, i) + tail.substr(i + 1);
                                        // Get the rest of the tail
@@ -37,24 +65,3 @@ void PermuteString(string head, string tail)
 
    return;
 } 
-
-int main() 
-{
-   const string PROMPT_STRING = "Enter a string to permute (use ctrl-C to exit): ";
-   string input = "";
-
-   // Get input and permute the string
-   cout << PROMPT_STRING << endl;
-   cin >> input;
-
-   while (input.length() > 0) 
-   {
-      PermuteString("", input);
-      cout << PROMPT_STRING << endl;
-      input = "";
-      cin >> input;
-   } 
-   cout << "Done." << endl;
-
-   return 0;
-}
