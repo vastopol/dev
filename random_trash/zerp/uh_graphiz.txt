@@ -1,0 +1,101 @@
+Graphviz
+
+NOTE: each TreeNode contains a "key" value which is a unique character used to generate the .dot file.
+
+Graphviz Dot files - graphs represented in .dot file can be displayed int the Graphviz viewer called dotty. 
+We will call dotty of a .dot file from within your C++ program using the system call. 
+But first familiarize yourself with both the input file format and the corresponding output using the dotty viewer.
+
+Installation:
+
+To install graphviz package you may open up a terminal and execute the following commands:
+
+sudo apt-get update
+sudo apt-get install graphviz
+
+
+Input file:
+
+Here are three input file samples:
+
+1. simple_bst.dot: This is the most basic method for producing a tree using Graphviz. The identifier for each node is that node's label, for example "key25" represents that the node has a key value of 25.
+
+digraph G1 {
+  // nodes and edges    
+  key12 -> key8;  
+  key12 -> key16; 
+  key8  -> key1; 
+  key8  -> key11; 
+  key16 -> key13;
+  key16 -> key25;
+}
+
+
+Line 1 gives the graph name (G1) and type (digraph). The lines that follow creates nodes, edges, or subgraphs and set attributes. 
+You may use Quotes to protect punctuation and white spaces. A node is created when its name first appears in the file (e.g. key12). 
+An edge is created when nodes are joined by the edge operator -> 
+
+
+To visualize the above graph, copy and paste the above code into a new file and save it as "tree.dot" file and then 
+run the following command:
+   dot -Tpng tree.dot -o graph.jpg 
+
+Once you execute the above command into a terminal, a visualization of the graph is going to be created into an image called graph.jpg.
+
+
+
+2. height_color.dot: The following code contains the representation for a tree (called G2) with nodes' labels that indicate the node's key and the node's height in the tree.
+
+digraph G2 {
+
+  // nodes
+  a [color = lightblue, style = filled, label="key=4, h=2"];
+  b [color = lightblue, style = filled, label="key=2, h=1"];
+  c [color = lightblue, style = filled, label="key=6, h=1"];
+  d [color = lightblue, style = filled, label="key=1, h=0"];
+  e [color = lightblue, style = filled, label="key=3, h=0"]; 
+  f [color = lightblue, style = filled, label="key=5, h=0"];
+  g [color = lightblue, style = filled, label="key=7, h=0"];
+
+  // edges    
+  a -> b; 
+  a -> c;
+  b -> d; 
+  b -> e; 
+  c -> f; 
+  c -> g; 
+}
+
+
+3. inorder_color.dot: The following code is the representation for G3 tree with nodes' labels that indicate the node's key and the node's order in which it is visited in an inorder traversal of the tree.
+
+digraph G3 {
+
+  // nodes
+  a [color = red, peripheries=2, style = filled, label="key=4, in=4"];
+  b [color = red, peripheries=2, style = filled, label="key=2, in=2"];
+  c [color = red, peripheries=2, style = filled, label="key=6, in=6"];
+  d [color = red, peripheries=2, style = filled, label="key=1, in=1"];
+  e [color = red, peripheries=2, style = filled, label="key=3, in=3"]; 
+  f [color = red, peripheries=2, style = filled, label="key=5, in=5"];
+  g [color = red, peripheries=2, style = filled, label="key=7, in=7"];
+
+  // edges    
+  a -> b; 
+  a -> c;
+  b -> d;
+  b -> e; 
+  c -> f;
+  c -> g;
+}
+
+
+////////////////////////////////////////
+
+
+error: "Fontconfig warning: ignoring C.UTF-8: not a valid language tag"...
+
+You should still be able to get the dot file and jpg file. However to fix the warning you can do the following:
+Type command "locale -a" (without quotations) in the terminal and it shows you a list of all the fonts you could use. Then you can pick one of them for instance "C".
+Then execute LC_ALL=C
+After this you won't get the warning anymore.

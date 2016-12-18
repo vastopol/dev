@@ -1,0 +1,85 @@
+Pretty simple. What about pointers? First, take a step back and recall what pointers are all about. The idea is that they hold a memory address, and that memory address is the address of some object somewhere in memory.
+
+ 
+int* b = &a; // the pointer b holds the memory address of our int a, from above  
+
+
+So b will have some value, lets say it's 0x22334455.
+
+Pointer arithmetic is the arithmetic of adding (and subtracting) values from a pointer. Recall that a pointer holds a memory address, so pointer arithmetic is the arithmetic of adding (and subtracting) values from a memory address. If we add the value 1 to a pointer, we don't mean "add 1 to that memory address you're holding". We mean "add enough to your memory to point at the next object along". 
+
+An int is commonly 4 bytes. If the address of b is 0x22334455, then the int will be occupying the bytes 0x22334455 and 0x22334456 an 0x22334457 an 0x22334458 (on some systems, it will be 0x22334455 and 0x22334454 and 0x22334453 and 0x22334452 - doesn't matter which, as your compiler will keep track of all that sort of thing for you and will adjust the pointer correctly). So if we have a pointer to an int, like b above, when we add 1 to that pinter, the memory address will change by 4 so that it now holds the memory address of the next int along in memory. It is up to us to make sure that there actually is an int there! The compiler will trust us to do it right.
+
+So, imagine we had two int values next to each other in memory. We could have done this by making an array
+
+
+int c[2]; // This will make two int values in memory, right next to each other
+int* p = &(c[0]); // This makes a pointer p, and gives it the value of the address of c[0], which is the first int  
+
+
+Note that this would also work;
+
+
+int*p = c; // This makes a pointer p, and gives it the value of the address of c, which is itself a pointer,
+            // pointing at the start of the array.  
+
+
+Now, let's add 1 to the pointer.
+
+ 
+p = p+1; // Now, the pointer holds the value of the next int along, c[1].  
+
+
+Pretty clever, eh? When you add 1 to a pointer, the value it holds does not change by one; it changes by exactly the right amount so that it will point to the next object along. It knows how far that is because when you made it, you specified what kind of object it will point to. If it is an int pointer, the value it holds will change by 4 (sometimes 8) bytes. If it points to some crazy object that is 40 bytes long, the value will change by 40 bytes. You don't need to worry about how much the memory address actually changes by; you can trust the compiler to handle it for you.
+
+If you added 2 to a pointer, the value of the pointer would change exactly the right amount to point at the object 2 along, and so on. If you subtract 1 from a pointer, it will point to the previous object along in memory.
+
+So, check this:
+
+
+double x[10]; // an array of 10 doubles
+double* p = x; // p is a pointer, now pointing at the first double
+for (int i=0;i<10;i++)
+{
+  std::cout << *p << std::endl;  // output the double value
+  p++; // make the pointer point to the next one
+}
+
+
+This code outputs the (garbage) values of an array of doubles, and demonstrates pointer arithmetic.
+
+As you'll realise, this opens itself to all sorts of neat stuff. How about if you had an int, and just for the fun of it, you wanted to look at each byte individually? A char is by definition one byte long, so if you had a char pointer, and made it point at that int, and then you added one to the char pointer, you'd be looking at the very next byte - inside the int!
+
+
+#include <iostream>
+
+int main()
+{
+
+  int a = 34;
+  char* p = (char*)&a; // Make a char*, and force the compiler to treat the address of a as a char pointer.
+  for (int i =0;i<4;i++)
+    {std::cout << (int)(*p) << std::endl; p++;} // Cycle through the 4 bytes of the int, outputting each byte as if it were an int
+  return 0;
+}
+
+
+
+This one is a tiny bit more interesting
+
+
+#include <iostream>
+int main()
+{
+  int a = 256;
+  char* p = (char*)&a; // Make a char*, and force the compiler to treat the address of a as a char pointer.
+  for (int i =0;i<4;i++)
+    {std::cout << (int)(*p) << std::endl; p++;} // Cycle through the 4 bytes of the int, outputting each byte as if it were an int
+  return 0;
+}
+
+
+You can get an insight into exactly what numbers are in the memory and you should be able to work out how the number 256 is being represented using the 4 bytes.
+
+As you could guess, we could do lots of crazy stuff with this kind of power to directly interfere with individual bytes. Welcome to the low-level power of C and C++!
+

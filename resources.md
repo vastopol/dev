@@ -9,5 +9,12 @@ Grouped by location:
 ### Soundcloud Podcasts
 * Haskellcast
 * Lambdacast
+* Codeblocks
+* lightbend
+* magpie talkshow
+* The ZADevchat Podcast
+* Stack Overflow Podcast
+* Stack Exchange Podcast
+
 
 ...

@@ -1,0 +1,5 @@
+Unfinished projects:
+
+* text_editor -> editr2
+
+* organize random trash
