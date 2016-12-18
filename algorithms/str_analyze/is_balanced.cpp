@@ -6,8 +6,26 @@
 #include <stack>
 #include <iterator>
 
+// local function
+bool isBalanced(std::string s);
 
-bool isBalanced(std::string s) // check for ballanced number of separators (, {, [
+//==============================================================
+int main()
+{
+    std::string test;
+
+    std::cout << "enter string" << std::endl;
+    std::getline(std::cin, test);
+    
+    std::cout << (isBalanced(test) ? "Balanced" : "Not Balanced") << std::endl;
+     
+return 0;
+}
+//==============================================================
+
+
+
+bool isBalanced(std::string s) // check for ballanced number of separators: (), [], {}
 {
     std::stack<char> ppp;
     
