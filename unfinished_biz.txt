@@ -7,3 +7,5 @@ Unfinished projects:
 * algo -> set up algorithm collection
 
 * organize random trash
+
+testing if the clone to vm worked properly...
