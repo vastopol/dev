@@ -1,0 +1,12 @@
+Exercises from: "The Practice of Programming" by Brian Kernigan && Rob Pike
+----------------------------------------------------------------------------
+
+some of the code from the book uses functions like: emalloc, eprintf, ...
+these are defined in Chapter 4
+
+Chapter 2:
+2.7 = lists
+2.8 = trees
+
+Chapter 4:
+4.7 = error wrapping functions

@@ -2,10 +2,10 @@ Unfinished projects:
 
 * text_editor -> editr2
 
-* games -> tic_tac_toe better
+* games -> tic_tac_toe (do it better)
 
 * algo -> set up algorithm collection
 
 * organize random trash
 
-testing if the clone to vm worked properly... again after vm lost it all...
+* exercises -> build prototypes from book
