@@ -15,11 +15,11 @@ void display(vector<int> &v);
 
 void transpose(vector<int> &v); // transpose helper
 
-void T(vector<int> &v, int n); // transpose by n semitones
+void T(vector<int> &v, unsigned n); // transpose by n semitones
 
 void invert(vector<int> &v); // inversion helper
 
-void I(vector<int> &v, int n); // invert n times
+void I(vector<int> &v, unsigned n); // invert n times
 
 void R(vector<int> &v); // retrograde = reversal
 

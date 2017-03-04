@@ -43,7 +43,7 @@ void transpose(vector<int> &v)
 
     string keyTo = "xXx";
     bool noGo = false;
-    int tones = 0;
+    unsigned tones = 0;
     unsigned i = 0;  // loop index 
     unsigned kk = 0; // index measured by degrees on chromatic from c
 
@@ -124,7 +124,7 @@ void transpose(vector<int> &v)
 }
 //-----------------------------------------------------------------
 
-void T(vector<int> &v, int n) // transposition by n semitones
+void T(vector<int> &v, unsigned n) // transposition by n semitones
 {
     for(unsigned i = 0; i < v.size(); i++)
     {
@@ -137,7 +137,7 @@ void invert(vector<int> &v) // inversion helper
 {
     queue<int> q;
     int k = -1;
-    int n;
+    int n = -1;
 
     // count inverversions
     for(unsigned i = 0; i < v.size(); i++) // fill queue
@@ -168,15 +168,19 @@ void invert(vector<int> &v) // inversion helper
     }
 
     // user input
-    cout << "enter inversion index:" << endl;
-    cin >> n;
+    do{
+        cout << "enter inversion index:" << endl;
+        cin >> n;
+        if(n < 0){cout << "ERROR\n";}
+    }while(n < 0);
+    
 
     I(v, n);
 
 }
 //-----------------------------------------------------------------
 
-void I(vector<int> &v, int n) // inversion n times
+void I(vector<int> &v, unsigned n) // inversion n times
 {
     queue<int> q;
     int k = -1;
