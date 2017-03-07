@@ -4,9 +4,10 @@ Exercises from: "The Practice of Programming" by Brian Kernigan && Rob Pike
 some of the code from the book uses functions like: emalloc, eprintf, ...
 these are defined in Chapter 4
 
-Chapter 2:
-2.7 = lists
-2.8 = trees
+Chapter 2: Data Structures
+2.7 = list
+2.8 = tree
 
-Chapter 4:
+Chapter 4: Interfaces
+4.3-4.5 = CSV library
 4.7 = error wrapping functions

@@ -54,7 +54,7 @@ Nameval* addend(Nameval *listp, Nameval *newp)
     {}
     
     p->next = newp;
-    return newp;
+    return listp;
 }
 /*-----------------------------------------*/
 
