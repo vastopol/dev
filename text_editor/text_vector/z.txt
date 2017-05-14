@@ -1,5 +1,5 @@
 TEXT VECTOR PROGRAM
-VERSION 2.0
+VERSION 2.1
 ----------------------------------
 options:
 0.) enter string
@@ -15,3 +15,5 @@ options:
 Notes:
 - string modification operatiorns: Reverse, toUpper, toLower
 - default selector index is 0 for: insert, erase, modify, analyze
+
+-also the prompt function (main.cpp) takes letters and will return a 0.

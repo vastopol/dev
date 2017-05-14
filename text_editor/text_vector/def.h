@@ -11,21 +11,21 @@ void clearScreen();
 
 void printIntro();
 
-void IsStringVowel(string sentence);
+bool IsStringVowel(char c);
 
-void IsStringConsonant(string sentence);
+bool IsStringConsonant(char c);
 
-void IsStringSymbol(string sentence);
+bool IsStringSymbol(char c);
 
-void StringAnalyze(const string &sentence);
+void StringAnalyze(const string& sentence);
 
-void StringUpper(string &sentence);
+void StringUpper(string& sentence);
 
-void StringLower(string &sentence);
+void StringLower(string& sentence);
 
 void StringReverse(string& sentence);
 
-void vectorDisplay(const vector<string> &paragraph);
+void vectorDisplay(const vector<string>& paragraph);
 
 
 #endif ///end of  __DEF_H__

@@ -28,128 +28,89 @@ void printIntro()
 
 
 /// checks string for vowels
-void IsStringVowel(string sentence)
+bool IsStringVowel(char c)
 {
-  int k = sentence.size();
-  bool outs = false;
-
-    cout << "String isVowel : ";
-    for(int i = 0; i < k; i++)
+    if(isalpha(c))
     {
-        string s1 = sentence;
-        char temp = 'x';
-        outs = isalpha(s1.at(i));
+        ///work more
+        char temp = toupper(c);
 
-        if(outs == true)
+        if(temp == 'A' || temp == 'E' || temp == 'I' || temp == 'O' || temp == 'U' )
         {
-            ///work more
-            s1.at(i) = toupper(s1.at(i));
-            temp = s1.at(i);
-
-            if(temp == 'A' || temp == 'E' || temp == 'I' || temp == 'O' || temp == 'U' )
-            {
-                cout << "1";
-            }
-            else
-            {
-                cout << "0";
-            }
+            return true;
         }
         else
         {
-            cout << "0";
-        } 
+            return false;
+        }
     }
-    cout << endl;
+    else
+    {
+        return false;
+    } 
 
-    return;
+
+    return false;
 }
 ///==============================================================================
 
 
-///checks string for consonants
-void IsStringConsonant(string sentence)
+/// checks string for consonants
+bool IsStringConsonant(char c)
 {
-    int k = sentence.size();
-    bool outs = false;
+   if(isalpha(c))
+   {
+        ///work more
+        char temp = toupper(c);
 
-    cout << "Str isConsonant: ";
-    for(int i = 0; i < k; i++)
-    {
-      string s1 = sentence;
-      char temp = 'x';
-      outs = isalpha(s1.at(i));
-
-       if(outs == true)
-       {
-            ///work more
-            s1.at(i) = toupper(s1.at(i));
-            temp = s1.at(i);
-
-            if(temp != 'A' && temp != 'E' && temp != 'I' && temp != 'O' && temp != 'U')
-            {
-                cout << "1";
-            }
-            else
-            {
-                cout << "0";
-            }
-        } 
+        if(temp != 'A' && temp != 'E' && temp != 'I' && temp != 'O' && temp != 'U')
+        {
+            return true;
+        }
         else
         {
-            cout << "0";
+            return false;
         }
     } 
-    cout << endl;
+    else
+    {
+        return false;
+    }
 
-    return;
+    return false;
 }
 ///==================================================================
 
 
-/// loop for symbols && punctuation
-void IsStringSymbol(string sentence)
+/// test for symbols && punctuation
+bool IsStringSymbol(char c)
 {
-    int k = sentence.size();
+    if(static_cast<int>(c) < 33) /// ascii code up to 31 are control characters, 32 = space
+        {
+            return false;
+        }
+    else if(static_cast<int>(c) > 47 && static_cast<int>(c) < 58) /// numbers 0-9
+        {
+            return false;
+        }
+    else if(static_cast<int>(c) > 64 && static_cast<int>(c) < 91) /// uppercase letters
+        {
+            return false;
+        }
+    else if(static_cast<int>(c) > 96 && static_cast<int>(c) < 123) ///lowercase letters
+        {
+            return false;
+        }
+    else if(static_cast<int>(c) == 127) // DEL
+        {
+            return false;
+        }
+    else
+        {
+            return true; // 33-47, 58-64, 91-96, 123-126
+        }
 
-    cout << "String isSymbol: ";
-
-    for(int i = 0; i < k; i++)
-    {
-        string s1 = sentence;
-        char temp = 'x';
-
-        temp = s1.at(i);
-
-        if(static_cast<int>(temp) < 33) /// ascii code up to 31 are null, 32 = space
-            {
-                cout << "0";
-            }
-        else if(static_cast<int>(temp) > 47 && static_cast<int>(temp) < 58) /// numbers 0-9
-            {
-                cout << "0";
-            }
-        else if(static_cast<int>(temp) > 64 && static_cast<int>(temp) < 91) /// uppercase letters
-            {
-                cout << "0";
-            }
-        else if(static_cast<int>(temp) > 96 && static_cast<int>(temp) < 123) ///lowercase letters
-            {
-                cout << "0";
-            }
-        else if(static_cast<int>(temp) == 127) // DEL
-            {
-                cout << "0";
-            }
-        else
-            {
-                cout << "1"; // 33-47, 58-64, 91-96, 123-126
-            }
-
-    } /// end of for loop
-    cout << endl;
-
-    return;
+    return false;
 }
 ///==================================================================
 
@@ -173,11 +134,23 @@ void StringAnalyze(const string &sentence)
     }
     cout << endl;
 
-    ///isVowel loop for characters*
-    IsStringVowel(sentence);
+    ///isVowel loop for characters*********************************************************************************
+    cout << "String isVowel : ";
+    for(int i = 0; i < k; i++)
+    {
+      outs = IsStringVowel(sentence.at(i));
+      cout << outs;
+    }
+    cout << endl;
 
-    ///isConsonant loop for characters*
-    IsStringConsonant(sentence);
+    ///isConsonant loop for characters*********************************************************************************
+    cout << "Str isConsonant: ";
+    for(int i = 0; i < k; i++)
+    {
+      outs = IsStringConsonant(sentence.at(i));
+      cout << outs;
+    }
+    cout << endl;
 
     ///isUpper loop for characters
     cout << "String isUpper : ";
@@ -215,8 +188,14 @@ void StringAnalyze(const string &sentence)
     }
     cout << endl;
 
-    ///isSymbol loop for characters*
-    IsStringSymbol(sentence);
+    ///isSymbol loop for characters*********************************************************************************
+    cout << "String isSymbol: ";
+    for(int i = 0; i < k; i++)
+    {
+      outs = IsStringSymbol(sentence.at(i));
+      cout << outs;
+    }
+    cout << endl;
 
     return;
 }
