@@ -1,0 +1,76 @@
+Specification for the  CSV parsing library
+
+Main Interface:
+
+char* csvgetline(FILE*); // read an new CSV line
+
+char* csvfield(int n); // return the n-th field of the current line
+
+int csvnfield(void); // return the number if fields on the current line
+
+//-----------------------------------------------------------------------
+Summary
+
+csvgetline will return a pointer to the original line of input, or NULL if end of file has been reached.
+It will remove the newline at the end of the line returned by csvgetline.
+no limits on length or number of fields.
+
+definition of a field:
+A field is a sequence of zero or more characters.
+Fields are separated by commas. Leading and trailing blanks are preserved. 
+A field may be enclosed in double-quote characters, in which case it may contain commas.
+A quoted field may contain double-quote characters, which are represented by a doubled double-quote.
+Fields can be empty.
+e.g.
+the field "x""y" defines the sting x"y
+the field "" is empty, and also identical to a field specified by adjacent commmas.
+Fields are numbered from zero.
+If the user asks for a non-existent field it will return NULL.
+
+the return value of csvgetline is a pointer to the original inout, which will be overwritten when the next line is read.
+Fields will be built in a copy of the input line, and csv field will return a pointer to the field within the copy.
+It is assumed that csvgetline is called with a FILE pointer to an already open file that the caller will close when done processing
+
+csvgetline return NULL, there is no god way to distinguish end of file from an error.
+Acess to a non-existant field returns no error.
+
+//-------------------------------------------------------------------------
+
+Specification:
+
+Fields are separated by commas.
+A field may be enclosed in double-quote characters "...".
+A quoted field may contain commas but not newlines.
+A quoted field may contain double-quote characters ", represented by two double-quotes "".
+Fields can be empty; "" and an empty string both represent an empty field.
+Leading and trailing whitespace is preserved.
+
+char* csvgetline(FILE* f)
+    reads one line from open input file f;
+        assumes that input lines are terminated by \r, \n, \r\n, or EOF.
+    returns pointer to line, with terminator removed, or NULL if EOF occured.
+    line may be of arbitrary length; returns NULL if memory limit exceeded.
+    line must be treated as read only storage;
+        caller must make a copy to preserve or change contents.
+
+char* csvfield(int n)
+    fields are numbered from 0.
+    returns n-th field from last line read by csvgetline;
+        returns NULL if n < 0 or beyond last field
+    fields are separated by commas.
+    fields may be surrounded by "..."; such quotes are removed.
+        within "...", the "" is replaced by ", and comma is not a separator.
+    in unquoted fields, quotes are regular characters.
+    there can be an arbitrary number of fields of any length;
+        returns NULL if memory limit is exceeded.
+    field must be treated as read only storage;
+        caller must make a copy to preserve or change contents.
+    behavior undefined if called before csvgetline is called.
+
+int csvnfield(void)
+    returns umber of fields on last line read by csvgetline.
+    behavior undefined if called before csvgetline os called.
+
+//-----------------------------------------------------------------
+
+specification is still an incomplete description of the functionality of the library.
