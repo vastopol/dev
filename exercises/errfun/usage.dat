@@ -1,0 +1,17 @@
+error handling library functions
+
+for example: eprintf()
+
+this function behaves like fprintf(stderr, ...) but it exits the program
+with an error status after reporting the error. it uses the <stdarg.h> header
+and also the vfprintf library routine to print the ... in the prototype. 
+the stdarg library must be initialized by a call to va_start and terminated by a call to va_end.
+
+if the format argument ends with a colon, eprintf calls the standard C function strerror,
+which returns a string containing any additional system error information that might be available.
+
+weprintf is similar to eprintf but displays a warning and does not exit (not included ***)
+
+estrdup tries to make a copy of a string and exits with a message (via eprintf) if it runs out of memory
+
+emalloc provides a similar service for calls to malloc
