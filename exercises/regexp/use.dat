@@ -1,0 +1,27 @@
+9.2 Regular Expressions
+
+An implementation of a subset of the full regular expression language and program grep.
+Only the meta characters are: '^', '$', '.', and '*'
+
+It is conventional that C programs return 0 for success, and non-zero values for various failures.
+this version of grep defines success as finding a matching line, it returns 0 if there were any matches,
+returns 1 if there were none, and returns 2 if there was an error. These status values can bes tested by other programs.
+
+the main routine doesn't quit if it fails to open a file.
+This was chosen because it is common to find that one of the files in the directory cant be read.
+grep keeps going after reporting the problem. 
+
+grep prints the file name and the matching line, but suppresses the name if it is reading the standard input or a single file.
+this reflects an idomatic style of use, when given only one input, grep's task is usually selection,
+and the file name would clutter the output, but if it is asked to search through many files, the task is most often to
+find all occurances of something, and the names are informative.
+
+ex.
+
+$ strings file.txt | grep 'message'
+
+or
+
+$ grep expr file*.txt
+
+
