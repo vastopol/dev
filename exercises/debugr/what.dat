@@ -1,0 +1,16 @@
+program strings is for looking at files of mostly non-printable characters.
+there is often information inside of these documents.
+strings can be helpful for finding text in other binary files.
+
+unix systems provide an implementation of strings already.
+it is implemented differently than this example, the unix version recognizes
+when its input is a program and examines only the text and data segments ignoring the symbol table.
+it's -a option forces it to read the whole file.
+
+strings extracts the ascii text form a binary file so that the text can be read or processed by other programs.
+if an error message carries no identification, it may not be evident what program produced it, or why.
+searching through likely directories with 
+    $ strings *.exe *.dll | grep 'message'
+might locate the producer of the message
+
+strings does not read its standard input if no files are specified.
