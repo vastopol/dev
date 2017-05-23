@@ -1,0 +1,39 @@
+/* 
+INCOMPLETE IDEAs
+interpretation && compilation for a virtual machine
+part 1: switch statement 
+part 2: operator table
+part 3: stack machine
+*/
+
+not a full implementation, would need a parser for this to work.
+also would have to complete the rest of the operations and build a framework.
+
+//-----------------------------------------
+
+for the statement:
+
+a = max(b, c/2);
+
+parse tree:
+
+     (=)
+    /   \
+  (a)   (max)
+        /   \
+      (b)   (/)
+            /  \
+          (c)  (2)
+
+generated code from part 3:
+
+pushsymop
+b
+pushsymop
+c
+pushop
+2
+divop
+maxop
+storesymop
+a
