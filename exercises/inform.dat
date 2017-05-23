@@ -15,3 +15,17 @@ Chapter 4: Interfaces
 Chapter 5: debugging
 
 Chapter 9: Notation
+9.2 = regular expressions
+9.4 = interpreters, compilers, and virtual machines
+
+//-----------------------
+
+the examples chosen/presented represent some of the common things encountered in computer science.
+
+note:
+
+these files should be cleaned up,
+proper header guards inserted,
+general code maintenance...
+
+

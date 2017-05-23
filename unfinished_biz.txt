@@ -8,4 +8,3 @@ Unfinished projects:
 
 * organize random trash
 
-* exercises -> build prototypes from book
